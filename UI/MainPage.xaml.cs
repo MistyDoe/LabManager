@@ -1,13 +1,10 @@
-﻿using UI.ViewModel;
+﻿namespace UI;
 
-namespace UI
+public partial class MainPage : ContentPage
 {
-	public partial class MainPage : ContentPage
+	public MainPage(PlantViewModel viewModel)
 	{
-		public MainPage(PlantViewModel viewModel)
-		{
-			InitializeComponent();
-			BindingContext = viewModel;
-		}
+		InitializeComponent();
+		BindingContext = viewModel;
 	}
 }

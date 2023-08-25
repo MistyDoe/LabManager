@@ -13,24 +13,39 @@
         ColumnSpacing="5"
         RowDefinitions="*,Auto"
         RowSpacing="0">
-        <CollectionView ItemsSource="{Binding Plants}"
-                         SelectionMode="None"
-                         Grid.ColumnSpan="1">
-
+        <CollectionView 
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Plants}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Plant">
+                    <Grid Padding="10">
+                        <Grid Padding="0" ColumnDefinitions="125,*">
+                            <VerticalStackLayout
+                         VerticalOptions="Center"
+                         Grid.Column="1"
+                         Padding="10">
+                                <Label Text="{Binding Name}" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
         </CollectionView>
+        
         <Button Text="Get Plants" 
                     Command="{Binding GetPlantsCommand}"
                     IsEnabled="{Binding IsNotBusy}"
                     Grid.Row="1"
                     Grid.Column="0"
-                    Style="{StaticResource ButtonOutline}"
+            
                     Margin="8"/>
         
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="Fill"
                            VerticalOptions="Center"
-                           Color="{StaticResource Primary}"
+                           
                            Grid.RowSpan="2"
                            Grid.ColumnSpan="2"/>
     </Grid>
