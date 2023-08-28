@@ -954,3 +954,4 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_Conver
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\res\xml\network_security_config.xml

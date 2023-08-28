@@ -1,24 +1,33 @@
-﻿namespace UI;
+﻿using System.Diagnostics;
+using UI.DataServices;
+
+namespace UI;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	private readonly IPlantRestDataServices _platService;
 
-	public MainPage()
+	public MainPage(IPlantRestDataServices plantService)
 	{
 		InitializeComponent();
+		_platService = plantService;
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	protected async override void OnAppearing()
 	{
-		count++;
+		base.OnAppearing();
+		collectionView.ItemsSource = await _platService.GetAllPlantsAsync();
+	}
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+	async void OnAddPlantClicked(object sender, EventArgs e)
+	{
+		Debug.WriteLine("Add button clicked");
+	}
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
+	async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+
+		Debug.WriteLine("Plant changed clicked");
 	}
 }
 
