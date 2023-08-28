@@ -4,9 +4,9 @@ namespace UI.DataServices
 {
 	public interface IPlantRestDataServices
 	{
-		Task<List<Plant>> GetAllPlanbtsAsync();
-		Task AddTodoAsyn(Plant plant);
-		Task RemoveTodoAsyn(int id);
+		Task<List<Plant>> GetAllPlantsAsync();
+		Task AddPlantAsync(Plant plant);
+		Task RemovePlantAsync(int id);
 		Task UpdatePlantAsync(Plant plant);
 	}
 }
