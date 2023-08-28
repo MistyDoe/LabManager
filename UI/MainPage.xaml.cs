@@ -5,18 +5,18 @@ namespace UI;
 
 public partial class MainPage : ContentPage
 {
-	private readonly IPlantRestDataServices _platService;
+	private readonly IPlantRestDataServices _plantService;
 
 	public MainPage(IPlantRestDataServices plantService)
 	{
 		InitializeComponent();
-		_platService = plantService;
+		_plantService = plantService;
 	}
 
 	protected async override void OnAppearing()
 	{
 		base.OnAppearing();
-		collectionView.ItemsSource = await _platService.GetAllPlantsAsync();
+		collectionView.ItemsSource = await _plantService.GetAllPlantsAsync();
 	}
 
 	async void OnAddPlantClicked(object sender, EventArgs e)

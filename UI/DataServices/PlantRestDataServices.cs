@@ -16,7 +16,7 @@ namespace UI.DataServices
 		{
 			_httpClient = new HttpClient();
 			_baseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5229" : "http://localhost:5229/";
-			_url = $"{_baseAddress}/api";
+			_url = $"{_baseAddress}api";
 			_jsonSerializerOptions = new JsonSerializerOptions
 			{
 				PropertyNamingPolicy = JsonNamingPolicy.CamelCase
