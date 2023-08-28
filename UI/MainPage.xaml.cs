@@ -26,7 +26,6 @@ public partial class MainPage : ContentPage
 
 	async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-
 		Debug.WriteLine("Plant changed clicked");
 	}
 }
