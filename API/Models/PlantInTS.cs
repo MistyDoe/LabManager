@@ -2,6 +2,7 @@
 {
 	public class PlantInTS
 	{
+
 		public Protocol Protocol { get; set; }
 		public Plant Plant { get; set; }
 		public int Quantity { get; set; }

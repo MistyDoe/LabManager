@@ -21,23 +21,23 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 }
 //app.UseHttpsRedirection();
-
-app.MapGet("api/LabManager", async (LabManagerDBContext context) =>
+//Plant EndPoints
+app.MapGet("api/LabManager/plant/", async (LabManagerDBContext context) =>
 {
 	var plants = await context.Plants.ToListAsync();
 	return Results.Ok(plants);
 });
 
-app.MapPost("api/LabManager", async (LabManagerDBContext context, Plant plant) =>
+app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, Plant plant) =>
 {
 	await context.Plants.AddAsync(plant);
 
 	await context.SaveChangesAsync();
 
-	return Results.Created($"api/LabManager/{plant.Id}", plant);
+	return Results.Created($"api/LabManager/plant/{plant.Id}", plant);
 });
 
-app.MapPut("api/LabManager/{id}", async (LabManagerDBContext context, int id, Plant plant) =>
+app.MapPut("api/LabManager/plant/{id}", async (LabManagerDBContext context, int id, Plant plant) =>
 {
 	var plantModel = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
 	if (plantModel == null)
@@ -55,7 +55,7 @@ app.MapPut("api/LabManager/{id}", async (LabManagerDBContext context, int id, Pl
 
 });
 
-app.MapDelete("api/LabManager/{id}", async (LabManagerDBContext context, int id) =>
+app.MapDelete("api/LabManager/plant/{id}", async (LabManagerDBContext context, int id) =>
 {
 	var plantModel = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
 	if (plantModel == null)
@@ -67,5 +67,8 @@ app.MapDelete("api/LabManager/{id}", async (LabManagerDBContext context, int id)
 
 	return Results.NoContent();
 });
+//Protocol Endpoints
+
+//
 app.Run();
 

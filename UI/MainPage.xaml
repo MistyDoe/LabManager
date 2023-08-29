@@ -12,7 +12,10 @@
                     SelectionChanged="OnSelectionChanged">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Label Text="{Binding Name}" FontSize="Medium" TextColor="AntiqueWhite"/>
+                <Label Text="{Binding Name}" FontSize="Small" TextColor="AntiqueWhite"/>
+                <Label Text="{Binding StoredQt}" FontSize="Small" TextColor="AntiqueWhite"/>
+                <Label Text="{Binding ForSale}" FontSize="Small" TextColor="AntiqueWhite"/>
+                <Label Text="{Binding QtInTS}" FontSize="Small" TextColor="AntiqueWhite"/>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
