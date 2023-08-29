@@ -28,6 +28,13 @@ app.MapGet("api/LabManager/plant/", async (LabManagerDBContext context) =>
 	return Results.Ok(plants);
 });
 
+app.MapGet("api/LabManager/plant/{id}", async (LabManagerDBContext context, int id) =>
+{
+	var plants = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
+	return Results.Ok(plants);
+});
+
+
 app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, Plant plant) =>
 {
 	await context.Plants.AddAsync(plant);
@@ -48,6 +55,8 @@ app.MapPut("api/LabManager/plant/{id}", async (LabManagerDBContext context, int 
 	plantModel.StoredQt = plant.StoredQt;
 	plantModel.ForSale = plant.ForSale;
 	plantModel.InTS = plant.InTS;
+	plantModel.QtInTS = plant.QtInTS;
+	plantModel.Protocols = plant.Protocols;
 
 	await context.SaveChangesAsync();
 

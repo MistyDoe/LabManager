@@ -148,11 +148,9 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\asset
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\Mono.Android.Export.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\Mono.Android.Export.pdb
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\Mono.Android.pdb
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\mscorlib.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\netstandard.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.AppContext.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Buffers.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Collections.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Collections.Immutable.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Collections.NonGeneric.dll
@@ -168,7 +166,6 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\asset
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Core.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Data.Common.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Data.DataSetExtensions.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Data.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.Contracts.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.Debug.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.DiagnosticSource.dll
@@ -179,7 +176,6 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\asset
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.Tools.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.TraceSource.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Diagnostics.Tracing.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Drawing.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Drawing.Primitives.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Dynamic.Runtime.dll
@@ -229,9 +225,7 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\asset
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Numerics.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Numerics.Vectors.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.ObjectModel.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.CoreLib.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.DataContractSerialization.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.Uri.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.Xml.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.Xml.Linq.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Reflection.DispatchProxy.dll
@@ -298,7 +292,6 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\asset
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Web.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Web.HttpUtility.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Windows.dll
-C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Xml.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Xml.Linq.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Xml.Serialization.dll
@@ -955,3 +948,10 @@ C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_Genera
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\stamp\_ResolveLibraryProjectImports.stamp
 C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\res\xml\network_security_config.xml
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\mscorlib.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Collections.Concurrent.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Data.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.CoreLib.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Private.Uri.dll
+C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-android\android\assets\System.Xml.dll

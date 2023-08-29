@@ -1,4 +1,5 @@
 ﻿using UI.DataServices;
+using UI.Pages;
 
 namespace UI;
 
@@ -17,6 +18,7 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<IPlantRestDataServices, PlantRestDataServices>();
 		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<ManagePlantPage>();
 
 		return builder.Build();
 	}

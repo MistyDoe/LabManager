@@ -56,6 +56,18 @@ namespace UI.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ForSale)));
 			}
 		}
+		bool _inTS;
+		bool InTS
+		{
+			get => _inTS;
+			set
+			{
+				if (_inTS == value)
+					return;
+				_inTS = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InTS)));
+			}
+		}
 		int? _qtInTS;
 		public int? QtInTS
 		{
@@ -68,6 +80,7 @@ namespace UI.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(QtInTS)));
 			}
 		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 	}

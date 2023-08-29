@@ -1,23 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.MainPage">
+             x:Class="UI.MainPage"
+             Title="Lab Manager">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add plant" Clicked="OnAddPlantClicked"/>
 
     </ContentPage.ToolbarItems>
-    <CollectionView x:Name="collectionView"
+    <StackLayout>
+        <CollectionView x:Name="collectionView"
+                        ItemsSource="{Binding Plants}"
+                        ItemsLayout="VerticalList"
                     SelectionMode="Single"
-                    SelectionChanged="OnSelectionChanged">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Label Text="{Binding Name}" FontSize="Small" TextColor="AntiqueWhite"/>
-                <Label Text="{Binding StoredQt}" FontSize="Small" TextColor="AntiqueWhite"/>
-                <Label Text="{Binding ForSale}" FontSize="Small" TextColor="AntiqueWhite"/>
-                <Label Text="{Binding QtInTS}" FontSize="Small" TextColor="AntiqueWhite"/>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                    SelectionChanged="OnSelectionChanged"
+                        Margin="15">
 
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="Medium"  TextColor="DimGrey"/>
+                        <Label Grid.Row="1"  Text="For sale:"  />
+                        <Line X1="00" X2="300" Y1="100" Y2="100"  Stroke="Aqua"/>
+                        <Label Grid.Row="1"  Grid.Column="1" Text="{Binding ForSale}" TextColor="LightSlateGray"/>
+                        <Label Grid.Row="2"  Text="Stored: " />
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding StoredQt}" TextColor="LightSlateGray"/>
+                        <Label Grid.Row="3"  Text="In Tissue culture: "/>
+                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding InTS}" TextColor="LightSlateGray"/>
+                        <Label Grid.Row="4"  Text="Amount in Tissue Culture: "/>
+                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding QtInTS}" TextColor="LightSlateGray"/>
+                        <Label Grid.Row="5"  Text="Protocols: "/>
+                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding Protocols}" TextColor="LightSlateGray"/>
+
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
 </ContentPage>
