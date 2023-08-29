@@ -11,6 +11,9 @@ namespace API.Models
 		public bool ForSale { get; set; }
 		public bool InTS { get; set; }
 		public int? QtInTS { get; set; }
+		public List<Protocol> Protocols { get; set; }
+
+
 	}
 
 
