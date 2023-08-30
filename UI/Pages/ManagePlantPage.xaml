@@ -5,12 +5,12 @@
              Title="Manage Plants">
     <VerticalStackLayout>
         <Label Text="New Plant"/>
-        <Entry Text="{Binding Name}" Placeholder="Plant name"/>
-        <Entry Keyboard="Numeric" Text="{Binding StoredQt}"  Placeholder="Currently stored "/>
+        <Entry Text="{Binding Plant.Name}" Placeholder="Plant name"/>
+        <Entry Keyboard="Numeric" Text="{Binding Plant.StoredQt}"  Placeholder="Currently stored "/>
         <Label Text="For Sale"/>
-        <CheckBox IsChecked="{Binding ForSale}"/>
+        <Switch  Toggled="OnSaleChecked"/>
         <Label Text="In Tissue Culture"/>
-        <CheckBox IsChecked="{Binding InTS}"/>
+        <Switch Toggled="OnTSChecked"/>
         <Button Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
         <Button Text="Cancel" Clicked="OnCancelButtonClicked"/>

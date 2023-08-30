@@ -57,7 +57,7 @@ namespace UI.Models
 			}
 		}
 		bool _inTS;
-		bool InTS
+		public bool InTS
 		{
 			get => _inTS;
 			set

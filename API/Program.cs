@@ -42,11 +42,12 @@ app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, Plant p
 	await context.SaveChangesAsync();
 
 	return Results.Created($"api/LabManager/plant/{plant.Id}", plant);
+
 });
 
-app.MapPut("api/LabManager/plant/{id}", async (LabManagerDBContext context, int id, Plant plant) =>
+app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, Plant plant) =>
 {
-	var plantModel = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
+	var plantModel = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == plant.Id);
 	if (plantModel == null)
 	{
 		return Results.NotFound();

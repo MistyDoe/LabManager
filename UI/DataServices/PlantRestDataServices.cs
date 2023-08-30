@@ -30,7 +30,7 @@ namespace UI.DataServices
 			{
 				string jsonPlants = JsonSerializer.Serialize<Plant>(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/LabManager/plant", content);
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/LabManager/plant/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
@@ -98,7 +98,7 @@ namespace UI.DataServices
 			{
 				string jsonPlants = JsonSerializer.Serialize<Plant>(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/api/LabManager/Plant/{plant.Id}", content);
+				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/LabManager/Plant/{plant.Id}", content);
 
 				if (response.IsSuccessStatusCode)
 				{

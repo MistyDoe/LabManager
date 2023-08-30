@@ -34,6 +34,15 @@ public partial class ManagePlantPage : ContentPage
 		return false;
 	}
 
+	void OnSaleChecked(object sender, ToggledEventArgs e)
+	{
+		Debug.WriteLine(e.Value);
+		Plant.ForSale = e.Value;
+	}
+	void OnTSChecked(object sender, ToggledEventArgs e)
+	{
+		Plant.InTS = e.Value;
+	}
 	async void OnSaveButtonClicked(Object sender, EventArgs e)
 	{
 		if (_isNew)
