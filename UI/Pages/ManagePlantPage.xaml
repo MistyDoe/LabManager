@@ -5,15 +5,36 @@
              Title="Manage Plants">
     <VerticalStackLayout>
         <Label Text="New Plant"/>
-        <Entry Text="{Binding Plant.Name}" Placeholder="Plant name"/>
-        <Entry Keyboard="Numeric" Text="{Binding Plant.StoredQt}"  Placeholder="Currently stored "/>
-        <Label Text="For Sale"/>
-        <Switch  Toggled="OnSaleChecked"/>
-        <Label Text="In Tissue Culture"/>
-        <Switch Toggled="OnTSChecked"/>
-        <Button Text="Save" Clicked="OnSaveButtonClicked"/>
+        <Entry Text="{Binding Plant.Name}" 
+            Placeholder="Plant name"/>
+        <Entry Keyboard="Numeric" 
+            Text="{Binding Plant.NoMotherPlants}" 
+            Placeholder="Number of mother plants"/>
+        <HorizontalStackLayout Spacing="20" >
+            <Label VerticalTextAlignment="Center" 
+                Text="For Sale"/>
+            <Switch OnColor="LawnGreen" 
+                IsToggled="{Binding Plant.ForSale}" 
+                Toggled="OnSaleChecked"/>
+        </HorizontalStackLayout>
+        <Entry IsVisible="{Binding Plant.ForSale}" 
+               Keyboard="Numeric" 
+               Text="{Binding Plant.ForSaleQt}" 
+               Placeholder="Number of plants ready for sale"/>
+        <HorizontalStackLayout Spacing="20">
+            <Label VerticalTextAlignment="Center" 
+                   Text="In Tissue Culture"/>
+            <Switch OnColor="LawnGreen" 
+                    IsToggled="{Binding Plant.InTS}" 
+                    Toggled="OnTSChecked"/>
+        </HorizontalStackLayout>
+        <Entry IsVisible="{Binding Plant.InTS}" 
+                Keyboard="Numeric" 
+                Text="{Binding Plant.InTSQt}" 
+       Placeholder="Number of plants In Tissue culture"/>
+        <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
-        <Button Text="Cancel" Clicked="OnCancelButtonClicked"/>
+        <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>
 
     </VerticalStackLayout>
 </ContentPage>

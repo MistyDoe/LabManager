@@ -34,7 +34,7 @@ namespace API.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("QtInTS")
+                    b.Property<int>("InTSQt")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("StoredQt")

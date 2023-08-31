@@ -11,7 +11,7 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
-                name: "QtInTS",
+                name: "InTSQt",
                 table: "Plants",
                 type: "INTEGER",
                 nullable: true,
@@ -193,7 +193,7 @@ namespace API.Migrations
                 name: "Stage");
 
             migrationBuilder.AlterColumn<int>(
-                name: "QtInTS",
+                name: "InTSQt",
                 table: "Plants",
                 type: "INTEGER",
                 nullable: false,
