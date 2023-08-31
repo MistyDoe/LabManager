@@ -53,7 +53,7 @@ app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, Pla
 		return Results.NotFound();
 	}
 	plantModel.Name = plant.Name;
-	plantModel.NoMotherPlants = plant.NoMotherPlants;
+	plantModel.MotherPlantsQt = plant.MotherPlantsQt;
 	plantModel.ForSale = plant.ForSale;
 
 	plantModel.ForSaleQt = plant.ForSaleQt;
@@ -61,7 +61,7 @@ app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, Pla
 	plantModel.InTS = plant.InTS;
 	plantModel.InTSQt = plant.InTSQt;
 	plantModel.Protocols = plant.Protocols;
-	plantModel.Total = plant.NoMotherPlants + plant.ForSaleQt + plant.InTSQt;
+	plantModel.TotalQt = plant.MotherPlantsQt + plant.ForSaleQt + plant.InTSQt;
 
 	await context.SaveChangesAsync();
 

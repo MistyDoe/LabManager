@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(LabManagerDBContext))]
-    partial class LabManagerDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230831002312_UpdatedPlantModel")]
+    partial class UpdatedPlantModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
@@ -110,12 +113,12 @@ namespace API.Migrations
                     b.Property<int>("InTSQt")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("MotherPlantsQt")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("MotherPlantsQt")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("TotalQt")
                         .HasColumnType("INTEGER");

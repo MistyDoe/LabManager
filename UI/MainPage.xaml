@@ -34,6 +34,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.ColumnSpan="2" Text="{Binding Name}" FontSize="Medium"  TextColor="DimGrey"/>
                         <Line X1="00" X2="300" Y1="100" Y2="100"  Stroke="Aqua"/>
+                        <Label Grid.Row="1"  Grid.Column="1" Text="{Binding TotalQt}" TextColor="LightSlateGray"/>
                         <Label Grid.Row="1"  Text="For sale:"  />
                         <Label Grid.Row="1"  Grid.Column="1" Text="{Binding ForSale}" TextColor="LightSlateGray"/>
                         <Label Grid.Row="2"  Text="Stored: " />
