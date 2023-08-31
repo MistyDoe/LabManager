@@ -5,15 +5,15 @@
 namespace API.Migrations
 {
 	/// <inheritdoc />
-	public partial class UpdatedPlantModelNameFix2 : Migration
+	public partial class UpdatedPlantModelNameFixTotals : Migration
 	{
 		/// <inheritdoc />
 		protected override void Up(MigrationBuilder migrationBuilder)
 		{
 			migrationBuilder.RenameColumn(
-				name: "NoMotherPlants",
+				name: "Total",
 				table: "Plants",
-				newName: "MotherPlantsQt");
+				newName: "TotalQt");
 		}
 
 		/// <inheritdoc />

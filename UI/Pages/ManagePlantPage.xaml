@@ -7,20 +7,23 @@
         <Label Text="New Plant"/>
         <Entry Text="{Binding Plant.Name}" 
             Placeholder="Plant name"/>
-        <Entry Keyboard="Numeric" 
-            Text="{Binding Plant.NoMotherPlants}" 
-            Placeholder="Number of mother plants"/>
         <HorizontalStackLayout Spacing="20" >
+            <Label VerticalTextAlignment="Center"  Text="Number of mother plants"/>
+            <Entry Keyboard="Numeric" 
+            Text="{Binding Plant.MotherPlantsQt}"/>
+        </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="20" >
             <Label VerticalTextAlignment="Center" 
                 Text="For Sale"/>
             <Switch OnColor="LawnGreen" 
                 IsToggled="{Binding Plant.ForSale}" 
                 Toggled="OnSaleChecked"/>
         </HorizontalStackLayout>
-        <Entry IsVisible="{Binding Plant.ForSale}" 
-               Keyboard="Numeric" 
-               Text="{Binding Plant.ForSaleQt}" 
-               Placeholder="Number of plants ready for sale"/>
+        <HorizontalStackLayout IsVisible="{Binding Plant.ForSale}" Spacing="20" >
+            <Label VerticalTextAlignment="Center"  Text="Number Of plants for sale"/>
+            <Entry Keyboard="Numeric" 
+                Text="{Binding Plant.ForSaleQt}"/>
+        </HorizontalStackLayout>
         <HorizontalStackLayout Spacing="20">
             <Label VerticalTextAlignment="Center" 
                    Text="In Tissue Culture"/>
@@ -28,10 +31,11 @@
                     IsToggled="{Binding Plant.InTS}" 
                     Toggled="OnTSChecked"/>
         </HorizontalStackLayout>
-        <Entry IsVisible="{Binding Plant.InTS}" 
-                Keyboard="Numeric" 
-                Text="{Binding Plant.InTSQt}" 
-       Placeholder="Number of plants In Tissue culture"/>
+        <HorizontalStackLayout IsVisible="{Binding Plant.inTS}" Spacing="20" >
+            <Label VerticalTextAlignment="Center"  Text="Number Of plants in tissue culture"/>
+            <Entry Keyboard="Numeric" 
+                Text="{Binding Plant.InTSQt}"/>
+        </HorizontalStackLayout>
         <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
         <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>

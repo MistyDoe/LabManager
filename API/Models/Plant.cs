@@ -7,8 +7,8 @@ namespace API.Models
 		[Key]
 		public int Id { get; set; }
 		public string Name { get; set; }
-		public int MotherPlantsQt { get; set; }
 		public int TotalQt { get; set; }
+		public int MotherPlantsQt { get; set; }
 		public bool ForSale { get; set; }
 		public int ForSaleQt { get; set; }
 		public bool InTS { get; set; }

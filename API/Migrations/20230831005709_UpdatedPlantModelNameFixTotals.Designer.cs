@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(LabManagerDBContext))]
-    [Migration("20230831003351_UpdatedPlantModelNameFix2")]
-    partial class UpdatedPlantModelNameFix2
+    [Migration("20230831005709_UpdatedPlantModelNameFixTotals")]
+    partial class UpdatedPlantModelNameFixTotals
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

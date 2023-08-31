@@ -17,7 +17,7 @@ namespace UI.Models
 			}
 		}
 
-		string? _name;
+		string _name;
 
 		public string Name
 		{
@@ -31,20 +31,33 @@ namespace UI.Models
 			}
 		}
 
-		int _storedQt;
-		public int StoredQt
+		int _totalQt;
+		public int TotalQt
 		{
-			get => _storedQt;
+			get => _totalQt;
 			set
 			{
-				if (_storedQt == value)
+				if (_totalQt == value)
 					return;
-				_storedQt = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(StoredQt)));
+				_totalQt = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_totalQt)));
 			}
 		}
-		bool _forSale;
 
+		int _motherPlantsQt;
+		public int MotherPlantsQt
+		{
+			get => _motherPlantsQt;
+			set
+			{
+				if (_motherPlantsQt == value)
+					return;
+				_motherPlantsQt = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_motherPlantsQt)));
+			}
+		}
+
+		bool _forSale;
 		public bool ForSale
 		{
 			get => _forSale;
@@ -56,6 +69,20 @@ namespace UI.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ForSale)));
 			}
 		}
+
+		int _forSaleQt;
+		public int ForSaleQt
+		{
+			get => _forSaleQt;
+			set
+			{
+				if (_forSaleQt == value)
+					return;
+				_forSaleQt = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_forSaleQt)));
+			}
+		}
+
 		bool _inTS;
 		public bool InTS
 		{
@@ -68,16 +95,16 @@ namespace UI.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InTS)));
 			}
 		}
-		int? _qtInTS;
-		public int? QtInTS
+		int _InTSQt;
+		public int InTSQt
 		{
-			get => _qtInTS;
+			get => _InTSQt;
 			set
 			{
-				if (_qtInTS == value)
+				if (_InTSQt == value)
 					return;
-				_qtInTS = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(QtInTS)));
+				_InTSQt = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(InTSQt)));
 			}
 		}
 
