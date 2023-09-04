@@ -108,7 +108,6 @@ namespace UI.Models
 			}
 		}
 
-
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

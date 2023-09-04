@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 //Plant EndPoints
 app.MapGet("api/LabManager/plant/", async (LabManagerDBContext context) =>
 {
-	var plants = await context.Plants.ToListAsync();
+	var plants = await context.Plants.Include(p => p.Protocols).ToListAsync();
 	return Results.Ok(plants);
 });
 
@@ -87,7 +87,7 @@ app.MapDelete("api/LabManager/plant/{id}", async (LabManagerDBContext context, i
 app.MapGet("api/LabManager/protocols", async (LabManagerDBContext context) =>
 {
 	var protocols = await context.Protocols.Include(p => p.Plants)
-											.ToListAsync();
+		.ToListAsync();
 	return Results.Ok(protocols);
 });
 app.MapGet("api/LabManager/protocols/{id}", async (LabManagerDBContext context, int id) =>

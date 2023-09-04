@@ -10,10 +10,10 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <CollectionView x:Name="collectionView"
-                        ItemsSource="{Binding Plants}"
+                        
                         ItemsLayout="VerticalList"
-                    SelectionMode="Single"
-                    SelectionChanged="OnSelectionChanged"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged"
                         Margin="15">
 
             <CollectionView.ItemTemplate>
@@ -34,8 +34,8 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.ColumnSpan="2" 
                                Text="{Binding Name}" 
-                               FontSize="Medium"  T
-                               extColor="DimGrey"/>
+                               FontSize="Medium"  
+                               TextColor="DimGrey"/>
                         <Line X1="00" 
                               X2="300" 
                               Y1="100" 
@@ -74,11 +74,12 @@
                                TextColor="LightSlateGray"/>
                         <Label Grid.Row="7"  
                                Text="Protocols: "/>
-                        <Label Grid.Row="7" 
+                       
+                        <Label 
+                            Grid.Row="7" 
                                Grid.Column="1" 
-                               Text="{Binding Protocols}" 
+                               Text="{Binding Protocols.Media}" 
                                TextColor="LightSlateGray"/>
-
                     </Grid>
 
                 </DataTemplate>
