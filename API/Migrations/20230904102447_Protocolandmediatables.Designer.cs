@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(LabManagerDBContext))]
-    partial class LabManagerDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230904102447_Protocolandmediatables")]
+    partial class Protocolandmediatables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
@@ -157,13 +160,13 @@ namespace API.Migrations
 
             modelBuilder.Entity("PlantProtocol", b =>
                 {
-                    b.Property<int>("PlantsId")
+                    b.Property<int>("Id")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ProtocolsId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("PlantsId", "ProtocolsId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProtocolsId");
 
@@ -203,7 +206,7 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Plant", null)
                         .WithMany()
-                        .HasForeignKey("PlantsId")
+                        .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

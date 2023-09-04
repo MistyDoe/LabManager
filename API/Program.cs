@@ -81,7 +81,74 @@ app.MapDelete("api/LabManager/plant/{id}", async (LabManagerDBContext context, i
 
 	return Results.NoContent();
 });
+
 //Protocol Endpoints
+
+app.MapGet("api/LabManager/protocols", async (LabManagerDBContext context) =>
+{
+	var protocols = await context.Protocols.Include(p => p.Plants)
+											.ToListAsync();
+	return Results.Ok(protocols);
+});
+app.MapGet("api/LabManager/protocols/{id}", async (LabManagerDBContext context, int id) =>
+{
+	var protocols = await context.Protocols.FirstOrDefaultAsync(pl => pl.Id == id);
+	return Results.Ok(protocols);
+});
+
+app.MapPost("api/LabManager/protocols/", async (LabManagerDBContext context, Protocol protocol) =>
+{
+	await context.Protocols.AddAsync(protocol);
+
+	await context.SaveChangesAsync();
+
+	return Results.Created($"api/LabManager/plant/{protocol.Id}", protocol);
+
+});
+
+app.MapPut("api/LabManager/protocols/{id}/", async (LabManagerDBContext context, Protocol protocol) =>
+{
+	var protocolModel = await context.Protocols.FirstOrDefaultAsync(pr => pr.Id == protocol.Id);
+	if (protocolModel == null)
+	{
+		return Results.NotFound();
+	}
+	protocolModel.Media = protocol.Media;
+	protocolModel.Resource = protocol.Resource;
+	protocolModel.Plants = protocol.Plants;
+
+
+
+	await context.SaveChangesAsync();
+
+	return Results.NoContent();
+
+});
+
+app.MapDelete("api/LabManager/protocols/{id}", async (LabManagerDBContext context, int id) =>
+{
+	var protocolModel = await context.Protocols.FirstOrDefaultAsync(pr => pr.Id == id);
+	if (protocolModel == null)
+	{
+		return Results.NotFound();
+	}
+	context.Protocols.Remove(protocolModel);
+	await context.SaveChangesAsync();
+	return Results.NoContent();
+});
+
+//Media endpoint
+
+app.MapPost("api/LabManager/media/", async (LabManagerDBContext context, Media media) =>
+{
+	await context.Media.AddAsync(media);
+
+	await context.SaveChangesAsync();
+
+	return Results.Created($"api/LabManager/plant/{media.Id}", media);
+
+});
+
 
 //
 app.Run();
