@@ -5,7 +5,9 @@
              Title="Lab Manager">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem    Text="Add plant" Clicked="OnAddPlantClicked"/>
+        <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
+        <ToolbarItem    Text="Add new ingredient" Clicked="OnAddIngredientClicked"/>
+        <ToolbarItem    Text="Add new protocol" Clicked="OnAddProtocolClicked"/>
 
     </ContentPage.ToolbarItems>
     <StackLayout>

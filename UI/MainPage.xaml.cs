@@ -32,6 +32,16 @@ public partial class MainPage : ContentPage
 		await Shell.Current.GoToAsync(nameof(ManagePlantPage), navigationParameter);
 	}
 
+	async void OnAddIngredientClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
+
+	async void OnAddProtocolClicked(object sender, EventArgs e)
+	{
+		throw new NotImplementedException();
+	}
+
 	async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 		Debug.WriteLine("Plant changed clicked");
