@@ -150,17 +150,16 @@ app.MapPost("api/LabManager/media/", async (LabManagerDBContext context, Media m
 });
 
 //Ingredient endpoint
-
 app.MapGet("api/LabManager/ingredient", async (LabManagerDBContext context) =>
 {
-	var protocols = await context.Protocols.Include(p => p.Plants)
-		.ToListAsync();
-	return Results.Ok(protocols);
+	var ingredients = await context.Ingredients.ToListAsync();
+	return Results.Ok(ingredients);
 });
-app.MapGet("api/LabManager/ingredient/{id}", async (LabManagerDBContext context, int id) =>
+
+app.MapGet("api/LabManager/ingredient/{id}", async (LabManagerDBContext context, string name) =>
 {
-	var protocols = await context.Protocols.FirstOrDefaultAsync(pl => pl.Id == id);
-	return Results.Ok(protocols);
+	var ingredient = await context.Ingredients.FirstOrDefaultAsync(pl => pl.Name == name);
+	return Results.Ok(ingredient);
 });
 
 app.MapPost("api/LabManager/ingredient/", async (LabManagerDBContext context, Ingredient ingredient) =>
@@ -169,7 +168,7 @@ app.MapPost("api/LabManager/ingredient/", async (LabManagerDBContext context, In
 
 	await context.SaveChangesAsync();
 
-	return Results.Created($"api/LabManager/ingredient/{ingredient.Id}", ingredient);
+	return Results.Created($"api/LabManager/ingredient/{ingredient.Name}", ingredient);
 
 });
 

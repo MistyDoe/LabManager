@@ -6,7 +6,6 @@ namespace UI.DataServices
 	{
 		Task<List<Ingredient>> GetAllIngredientsAsync();
 		Task AddIngredientAsync(Ingredient ingredient);
-
 		Task UpdateIngredientAsync(Ingredient ingredient);
 	}
 }
