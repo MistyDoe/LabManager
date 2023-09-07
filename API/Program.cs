@@ -149,6 +149,53 @@ app.MapPost("api/LabManager/media/", async (LabManagerDBContext context, Media m
 
 });
 
+//Ingredient endpoint
+
+app.MapGet("api/LabManager/ingredient", async (LabManagerDBContext context) =>
+{
+	var protocols = await context.Protocols.Include(p => p.Plants)
+		.ToListAsync();
+	return Results.Ok(protocols);
+});
+app.MapGet("api/LabManager/ingredient/{id}", async (LabManagerDBContext context, int id) =>
+{
+	var protocols = await context.Protocols.FirstOrDefaultAsync(pl => pl.Id == id);
+	return Results.Ok(protocols);
+});
+
+app.MapPost("api/LabManager/ingredient/", async (LabManagerDBContext context, Ingredient ingredient) =>
+{
+	await context.Ingredients.AddAsync(ingredient);
+
+	await context.SaveChangesAsync();
+
+	return Results.Created($"api/LabManager/ingredient/{ingredient.Id}", ingredient);
+
+});
+
+app.MapPut("api/LabManager/ingredients/{id}/", async (LabManagerDBContext context, Ingredient ingredient) =>
+{
+	var ingredientModel = await context.Ingredients.FirstOrDefaultAsync(pr => pr.Name == ingredient.Name);
+	if (ingredientModel == null)
+	{
+		return Results.NotFound();
+	}
+	ingredientModel.Quantity = ingredient.Quantity;
+	if (ingredient.ListOfIngredients != null)
+	{
+		foreach (var ingedient in ingredient.ListOfIngredients)
+		{
+			context.Add(ingedient);
+		}
+		context.SaveChanges();
+	}
+
+	await context.SaveChangesAsync();
+
+	return Results.NoContent();
+
+});
+
 
 //
 app.Run();

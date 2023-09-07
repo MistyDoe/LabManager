@@ -13,7 +13,7 @@ namespace API.Data
 		public DbSet<Plant> Plants => Set<Plant>();
 		public DbSet<Protocol> Protocols => Set<Protocol>();
 		public DbSet<Media> Media => Set<Media>();
-
+		public DbSet<Ingredient> Ingredients => Set<Ingredient>();
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Plant>()
