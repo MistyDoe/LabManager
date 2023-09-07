@@ -162,7 +162,7 @@ app.MapGet("api/LabManager/ingredient/{id}", async (LabManagerDBContext context,
 	return Results.Ok(ingredient);
 });
 
-app.MapPost("api/LabManager/ingredient/", async (LabManagerDBContext context, Ingredient ingredient) =>
+app.MapPost("api/LabManager/ingredient", async (LabManagerDBContext context, Ingredient ingredient) =>
 {
 	await context.Ingredients.AddAsync(ingredient);
 
@@ -172,7 +172,7 @@ app.MapPost("api/LabManager/ingredient/", async (LabManagerDBContext context, In
 
 });
 
-app.MapPut("api/LabManager/ingredients/{id}/", async (LabManagerDBContext context, Ingredient ingredient) =>
+app.MapPut("api/LabManager/ingredients/{id}", async (LabManagerDBContext context, Ingredient ingredient) =>
 {
 	var ingredientModel = await context.Ingredients.FirstOrDefaultAsync(pr => pr.Name == ingredient.Name);
 	if (ingredientModel == null)
