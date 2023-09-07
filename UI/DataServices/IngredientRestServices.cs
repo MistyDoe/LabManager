@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text;
+using System.Text.Json;
 using UI.Models;
 
 namespace UI.DataServices
@@ -23,22 +25,74 @@ namespace UI.DataServices
 
 		}
 
+		public async Task<List<Ingredient>> GetAllIngredientsAsync()
+		{
+			List<Ingredient> ingredients = new List<Ingredient>();
+
+			try
+			{
+				HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/LabManager/ingredient");
+				if (response.IsSuccessStatusCode)
+				{
+					string content = await response.Content.ReadAsStringAsync();
+					ingredients = JsonSerializer.Deserialize<List<Ingredient>>(content, _jsonSerializerOptions);
+				}
+				else
+				{
+					Debug.WriteLine(" Non http 2xx responce");
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+			return ingredients;
+		}
 		public async Task AddIngedientAsync(Ingredient ingredient)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
+				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/LabManager/ingredient/", content);
+
+				if (response.IsSuccessStatusCode)
+				{
+					Debug.Write("Successfully created plant");
+				}
+				else
+				{
+					Debug.WriteLine("Non Http 2xx response");
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+			return;
 		}
-
-		public async Task<List<Plant>> GetAllIngredientsAsync()
+		public async Task UpdateIngedientAsync(Ingredient ingredient)
 		{
+			try
+			{
+				string jsonIngredients = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
+				StringContent content = new StringContent(jsonIngredients, Encoding.UTF8, "application/Json");
+				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/LabManager/ingredient/{ingredient.Name}", content);
 
+				if (response.IsSuccessStatusCode)
+				{
+					Debug.Write("Successfully created plant");
+				}
+				else
+				{
+					Debug.WriteLine("Non Http 2xx response");
+				}
 
-			throw new NotImplementedException();
-		}
-
-
-		public async Task UpdateIngedientAsync(Plant plant)
-		{
-			throw new NotImplementedException();
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
 
 		}
 	}
