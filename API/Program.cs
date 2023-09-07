@@ -156,7 +156,7 @@ app.MapGet("api/LabManager/ingredient", async (LabManagerDBContext context) =>
 	return Results.Ok(ingredients);
 });
 
-app.MapGet("api/LabManager/ingredient/{id}", async (LabManagerDBContext context, string name) =>
+app.MapGet("api/LabManager/ingredient/{name}", async (LabManagerDBContext context, string name) =>
 {
 	var ingredient = await context.Ingredients.FirstOrDefaultAsync(pl => pl.Name == name);
 	return Results.Ok(ingredient);
@@ -172,7 +172,7 @@ app.MapPost("api/LabManager/ingredient", async (LabManagerDBContext context, Ing
 
 });
 
-app.MapPut("api/LabManager/ingredients/{id}", async (LabManagerDBContext context, Ingredient ingredient) =>
+app.MapPut("api/LabManager/ingredient/{name}", async (LabManagerDBContext context, Ingredient ingredient) =>
 {
 	var ingredientModel = await context.Ingredients.FirstOrDefaultAsync(pr => pr.Name == ingredient.Name);
 	if (ingredientModel == null)
@@ -180,9 +180,9 @@ app.MapPut("api/LabManager/ingredients/{id}", async (LabManagerDBContext context
 		return Results.NotFound();
 	}
 	ingredientModel.Quantity = ingredient.Quantity;
-	if (ingredient.ListOfIngredients != null)
+	if (ingredient.ListOfMedias != null)
 	{
-		foreach (var ingedient in ingredient.ListOfIngredients)
+		foreach (var ingedient in ingredient.ListOfMedias)
 		{
 			context.Add(ingedient);
 		}
