@@ -76,6 +76,10 @@ namespace API.Migrations
                     b.Property<int>("ForSaleQt")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Genus")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<bool>("InTS")
                         .HasColumnType("INTEGER");
 

@@ -11,8 +11,7 @@
 
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <CollectionView x:Name="collectionView"
-                        
+        <CollectionView x:Name="collectionView"                      
                         ItemsLayout="VerticalList"
                         SelectionMode="Single"
                         SelectionChanged="OnSelectionChanged"
@@ -76,12 +75,8 @@
                                TextColor="LightSlateGray"/>
                         <Label Grid.Row="7"  
                                Text="Protocols: "/>
-                       
-                        <Label 
-                            Grid.Row="7" 
-                               Grid.Column="1" 
-                               Text="{Binding Protocols.Media}" 
-                               TextColor="LightSlateGray"/>
+
+                        
                     </Grid>
 
                 </DataTemplate>

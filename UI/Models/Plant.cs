@@ -108,6 +108,20 @@ namespace UI.Models
 			}
 		}
 
+		string _Genus;
+
+		public string Genus
+		{
+			get => _Genus;
+			set
+			{
+				if (_Genus == value)
+					return;
+				_Genus = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genus)));
+			}
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

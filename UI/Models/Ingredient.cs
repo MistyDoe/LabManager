@@ -2,7 +2,7 @@
 
 namespace UI.Models
 {
-	internal class Ingredient
+	public class Ingredient
 	{
 
 		int _name;
