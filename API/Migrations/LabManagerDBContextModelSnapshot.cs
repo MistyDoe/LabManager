@@ -103,11 +103,16 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("PlantId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Resource")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PlantId");
 
                     b.ToTable("Protocols");
                 });
@@ -132,29 +137,14 @@ namespace API.Migrations
                     b.Property<int>("IngredientsId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ListOfIngredientsId")
+                    b.Property<int>("ListOfMediasId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("IngredientsId", "ListOfIngredientsId");
+                    b.HasKey("IngredientsId", "ListOfMediasId");
 
-                    b.HasIndex("ListOfIngredientsId");
+                    b.HasIndex("ListOfMediasId");
 
                     b.ToTable("IngredientMedia");
-                });
-
-            modelBuilder.Entity("PlantProtocol", b =>
-                {
-                    b.Property<int>("PlantsId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ProtocolsId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("PlantsId", "ProtocolsId");
-
-                    b.HasIndex("ProtocolsId");
-
-                    b.ToTable("PlantProtocol");
                 });
 
             modelBuilder.Entity("API.Models.Media", b =>
@@ -170,6 +160,15 @@ namespace API.Migrations
                     b.Navigation("Stage");
                 });
 
+            modelBuilder.Entity("API.Models.Protocol", b =>
+                {
+                    b.HasOne("API.Models.Plant", "Plant")
+                        .WithMany("Protocols")
+                        .HasForeignKey("PlantId");
+
+                    b.Navigation("Plant");
+                });
+
             modelBuilder.Entity("IngredientMedia", b =>
                 {
                     b.HasOne("API.Models.Ingredient", null)
@@ -180,24 +179,14 @@ namespace API.Migrations
 
                     b.HasOne("API.Models.Media", null)
                         .WithMany()
-                        .HasForeignKey("ListOfIngredientsId")
+                        .HasForeignKey("ListOfMediasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PlantProtocol", b =>
+            modelBuilder.Entity("API.Models.Plant", b =>
                 {
-                    b.HasOne("API.Models.Plant", null)
-                        .WithMany()
-                        .HasForeignKey("PlantsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("API.Models.Protocol", null)
-                        .WithMany()
-                        .HasForeignKey("ProtocolsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Protocols");
                 });
 
             modelBuilder.Entity("API.Models.Protocol", b =>

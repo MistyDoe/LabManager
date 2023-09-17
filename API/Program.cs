@@ -1,6 +1,8 @@
 using API.Data;
 using API.Models;
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,12 @@ opt.UseSqlite(builder.Configuration.GetConnectionString("SqLiteConnection")));
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+	options.SerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -30,7 +38,7 @@ app.MapGet("api/LabManager/plant/", async (LabManagerDBContext context) =>
 
 app.MapGet("api/LabManager/plant/{id}", async (LabManagerDBContext context, int id) =>
 {
-	var plants = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
+	var plants = await context.Plants.Include(p => p.Protocols).FirstOrDefaultAsync(pl => pl.Id == id);
 	return Results.Ok(plants);
 });
 
@@ -60,7 +68,12 @@ app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, Pla
 
 	plantModel.InTS = plant.InTS;
 	plantModel.InTSQt = plant.InTSQt;
-	plantModel.Protocols = plant.Protocols;
+
+	foreach (var protocol in plant.Protocols)
+	{
+		plantModel.Protocols.Add(protocol);
+	}
+
 	plantModel.TotalQt = plant.MotherPlantsQt + plant.ForSaleQt + plant.InTSQt;
 
 	await context.SaveChangesAsync();
@@ -86,7 +99,7 @@ app.MapDelete("api/LabManager/plant/{id}", async (LabManagerDBContext context, i
 
 app.MapGet("api/LabManager/protocols", async (LabManagerDBContext context) =>
 {
-	var protocols = await context.Protocols.Include(p => p.Plants)
+	var protocols = await context.Protocols.Include(p => p.Plant)
 		.ToListAsync();
 	return Results.Ok(protocols);
 });
@@ -115,9 +128,7 @@ app.MapPut("api/LabManager/protocols/{id}/", async (LabManagerDBContext context,
 	}
 	protocolModel.Media = protocol.Media;
 	protocolModel.Resource = protocol.Resource;
-	protocolModel.Plants = protocol.Plants;
-
-
+	protocolModel.PlantId = protocol.PlantId;
 
 	await context.SaveChangesAsync();
 

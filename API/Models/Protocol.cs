@@ -7,7 +7,9 @@ namespace API.Models
 		public int Id { get; set; }
 		public List<Media>? Media { get; set; }
 		public string Resource { get; set; }
+		public int? PlantId { get; set; }
+
 		[JsonIgnore]
-		public List<Plant>? Plants { get; set; }
+		public Plant? Plant { get; set; }
 	}
 }
