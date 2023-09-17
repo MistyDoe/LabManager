@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IO2vQE3rchGS1sfOpDajeokzihOb3MlV0JDvXWpda3l81LQWpJepa07I3YyvhIydqo0+Y+knL6zC1eysnipMMQ==",
+  "dgSpecHash": "wFVwuJVOOanfLAJXVRi3O9B4CFhKnQUrYl1wjDJ2owI2IkvnV63gVO33kN2uofQCWj/Rpl8gqJzx5plkUiPhcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\migli\\source\\repos\\LabManager\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\migli\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\migli\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.10\\microsoft.data.sqlite.core.7.0.10.nupkg.sha512",

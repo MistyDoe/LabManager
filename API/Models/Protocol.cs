@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace API.Models
+﻿namespace API.Models
 {
 	public class Protocol
 	{
@@ -8,8 +6,6 @@ namespace API.Models
 		public List<Media>? Media { get; set; }
 		public string Resource { get; set; }
 		public int? PlantId { get; set; }
-
-		[JsonIgnore]
 		public Plant? Plant { get; set; }
 	}
 }

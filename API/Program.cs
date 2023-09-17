@@ -1,5 +1,7 @@
 using API.Data;
+using API.DTOs;
 using API.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
@@ -17,6 +19,8 @@ builder.Services.Configure<JsonOptions>(options =>
 {
 	options.SerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
 });
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddSwaggerGen();
 
@@ -43,8 +47,10 @@ app.MapGet("api/LabManager/plant/{id}", async (LabManagerDBContext context, int 
 });
 
 
-app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, Plant plant) =>
+app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, IMapper mapper, PlantDTO plantDTO) =>
 {
+	var plant = mapper.Map<Plant>(plantDTO);
+
 	await context.Plants.AddAsync(plant);
 
 	await context.SaveChangesAsync();
@@ -53,31 +59,11 @@ app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, Plant p
 
 });
 
-app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, Plant plant) =>
+app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, IMapper mapper, PlantDTO plantDTO) =>
 {
-	var plantModel = await context.Plants.FirstOrDefaultAsync(pl => pl.Id == plant.Id);
-	if (plantModel == null)
-	{
-		return Results.NotFound();
-	}
-	plantModel.Name = plant.Name;
-	plantModel.MotherPlantsQt = plant.MotherPlantsQt;
-	plantModel.ForSale = plant.ForSale;
-
-	plantModel.ForSaleQt = plant.ForSaleQt;
-
-	plantModel.InTS = plant.InTS;
-	plantModel.InTSQt = plant.InTSQt;
-
-	foreach (var protocol in plant.Protocols)
-	{
-		plantModel.Protocols.Add(protocol);
-	}
-
-	plantModel.TotalQt = plant.MotherPlantsQt + plant.ForSaleQt + plant.InTSQt;
-
+	var updatedPlant = mapper.Map<Plant>(plantDTO);
+	context.Update(updatedPlant);
 	await context.SaveChangesAsync();
-
 	return Results.NoContent();
 
 });
@@ -109,8 +95,10 @@ app.MapGet("api/LabManager/protocols/{id}", async (LabManagerDBContext context, 
 	return Results.Ok(protocols);
 });
 
-app.MapPost("api/LabManager/protocols/", async (LabManagerDBContext context, Protocol protocol) =>
+app.MapPost("api/LabManager/protocols/", async (LabManagerDBContext context, IMapper mapper, ProtocolDTO protocolDTO) =>
 {
+	var protocol = mapper.Map<Protocol>(protocolDTO);
+
 	await context.Protocols.AddAsync(protocol);
 
 	await context.SaveChangesAsync();
@@ -119,19 +107,11 @@ app.MapPost("api/LabManager/protocols/", async (LabManagerDBContext context, Pro
 
 });
 
-app.MapPut("api/LabManager/protocols/{id}/", async (LabManagerDBContext context, Protocol protocol) =>
+app.MapPut("api/LabManager/protocols/{id}/", async (LabManagerDBContext context, IMapper mapper, ProtocolDTO protocolDTO) =>
 {
-	var protocolModel = await context.Protocols.FirstOrDefaultAsync(pr => pr.Id == protocol.Id);
-	if (protocolModel == null)
-	{
-		return Results.NotFound();
-	}
-	protocolModel.Media = protocol.Media;
-	protocolModel.Resource = protocol.Resource;
-	protocolModel.PlantId = protocol.PlantId;
-
+	var updatedProtocol = mapper.Map<Protocol>(protocolDTO);
+	context.Update(updatedProtocol);
 	await context.SaveChangesAsync();
-
 	return Results.NoContent();
 
 });
