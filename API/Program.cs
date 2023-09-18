@@ -49,6 +49,7 @@ app.MapGet("api/LabManager/plant/{id}", async (LabManagerDBContext context, int 
 app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, IMapper mapper, PlantDTO plantDTO) =>
 {
 	var plant = mapper.Map<Plant>(plantDTO);
+	plant.TotalQt = plantDTO.InTSQt + plantDTO.MotherPlantsQt;
 
 	await context.Plants.AddAsync(plant);
 
@@ -60,7 +61,10 @@ app.MapPost("api/LabManager/plant/", async (LabManagerDBContext context, IMapper
 
 app.MapPut("api/LabManager/plant/{id}/", async (LabManagerDBContext context, IMapper mapper, PlantDTO plantDTO) =>
 {
-	var updatedPlant = mapper.Map<Plant>(plantDTO);
+	Plant updatedPlant = new Plant();
+
+	updatedPlant = mapper.Map<Plant>(plantDTO);
+	updatedPlant.TotalQt = plantDTO.InTSQt + plantDTO.MotherPlantsQt + plantDTO.ForSaleQt;
 	context.Update(updatedPlant);
 	await context.SaveChangesAsync();
 	return Results.NoContent();
