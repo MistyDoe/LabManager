@@ -77,7 +77,6 @@ namespace API.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genus")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("InTS")
@@ -106,6 +105,10 @@ namespace API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("PlantId")
                         .HasColumnType("INTEGER");
