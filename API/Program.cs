@@ -4,7 +4,6 @@ using API.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
-using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.Configure<JsonOptions>(options =>
 {
-	options.SerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+	options.SerializerOptions.ReferenceHandler = null;
 });
 
 builder.Services.AddAutoMapper(typeof(Program));

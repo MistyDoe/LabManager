@@ -28,6 +28,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -74,9 +76,18 @@
                                Text="{Binding InTSQt}" 
                                TextColor="LightSlateGray"/>
                         <Label Grid.Row="7"  
-                               Text="Protocols: "/>
+                               Text="Prorocols:"/>
+                        <ListView Grid.Column="7" Grid.Row="1" ItemsSource="{Binding Protocols}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextCell  Text="{Binding Description}"
+                                               Detail="{Binding Resource}"/>
+                                    
+                                    
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
 
-                        
                     </Grid>
 
                 </DataTemplate>

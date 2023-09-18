@@ -24639,9 +24639,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\migli\\source\\repos\\LabManager\\UI\\UI.csproj",
-      "projectName": "UI",
-      "projectPath": "C:\\Users\\migli\\source\\repos\\LabManager\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\migli\\source\\repos\\LabManager\\UI\\Client.csproj",
+      "projectName": "Client",
+      "projectPath": "C:\\Users\\migli\\source\\repos\\LabManager\\UI\\Client.csproj",
       "packagesPath": "C:\\Users\\migli\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\migli\\source\\repos\\LabManager\\UI\\obj\\",
       "projectStyle": "PackageReference",

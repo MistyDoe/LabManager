@@ -1,1 +1,1 @@
-C:\Users\migli\source\repos\LabManager\UI\UI.csproj;x64
+C:\Users\migli\source\repos\LabManager\UI\Client.csproj;x64

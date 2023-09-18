@@ -18,7 +18,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
-    <RegisteredManifestChecksum>3381F2A6A80554D89C9BFC4D5B2486282B5D0AB46DFCD015195E15A70BFD7FD5</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>3118ED67715906C53B5C1A33FD9D05FC514A89F9E41E51B17DE20A8EEFC9B05C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>8644121f-37e5-47e5-af20-bb9d685a843f_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>8644121f-37e5-47e5-af20-bb9d685a843f_9zz4h110yvjzm!App</RegisteredUserModeAppID>
     <RegisteredPackageID>8644121f-37e5-47e5-af20-bb9d685a843f</RegisteredPackageID>
@@ -29,29 +29,29 @@
     <AppXManifest Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-09-17T11:00:04.177</Modified>
+      <Modified>2023-09-18T17:22:58.082</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-09-17T10:55:12.368</Modified>
+      <Modified>2023-09-18T17:22:57.740</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\UI.runtimeconfig.json">
-      <PackagePath>UI.runtimeconfig.json</PackagePath>
-      <Modified>2023-08-28T14:42:49.872</Modified>
+    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Client.runtimeconfig.json">
+      <PackagePath>Client.runtimeconfig.json</PackagePath>
+      <Modified>2023-09-18T16:30:44.819</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\UI.dll">
-      <PackagePath>UI.dll</PackagePath>
-      <Modified>2023-09-17T11:00:02.829</Modified>
+    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Client.dll">
+      <PackagePath>Client.dll</PackagePath>
+      <Modified>2023-09-18T17:22:56.680</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
-      <PackagePath>UI.exe</PackagePath>
-      <Modified>2023-09-17T11:00:02.840</Modified>
+      <PackagePath>Client.exe</PackagePath>
+      <Modified>2023-09-18T17:22:56.692</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\UI.deps.json">
-      <PackagePath>UI.deps.json</PackagePath>
-      <Modified>2023-09-17T10:55:11.987</Modified>
+    <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\UI\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Client.deps.json">
+      <PackagePath>Client.deps.json</PackagePath>
+      <Modified>2023-09-18T16:30:44.669</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\migli\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.21\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

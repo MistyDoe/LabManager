@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {},
     ".NETCoreApp,Version=v6.0/win10-x64": {
-      "UI/1.0": {
+      "Client/1.0": {
         "dependencies": {
           "Microsoft.Maui.Dependencies": "6.0.553",
           "Microsoft.Maui.Extensions": "6.0.553",
@@ -18,7 +18,7 @@
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.29"
         },
         "runtime": {
-          "UI.dll": {}
+          "Client.dll": {}
         }
       },
       "runtimepack.Microsoft.NETCore.App.Runtime.win-x64/6.0.21": {
@@ -1111,7 +1111,7 @@
     }
   },
   "libraries": {
-    "UI/1.0": {
+    "Client/1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

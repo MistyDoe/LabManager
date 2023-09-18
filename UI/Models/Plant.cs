@@ -122,6 +122,20 @@ namespace UI.Models
 			}
 		}
 
+		List<Protocol> _protocols;
+
+		public List<Protocol> Protocols
+		{
+			get => _protocols;
+			set
+			{
+				if (_protocols == value)
+					return;
+				_protocols = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Protocols)));
+			}
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

@@ -43,6 +43,19 @@ namespace UI.Models
 			}
 		}
 
+		public string _description;
+		public string Description
+		{
+			get => _description;
+			set
+			{
+				if (_description == value)
+					return;
+				_description = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Description)));
+			}
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }
