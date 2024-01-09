@@ -34,7 +34,8 @@ public partial class MainPage : ContentPage
 
 	async void OnAddIngredientClicked(object sender, EventArgs e)
 	{
-		throw new NotImplementedException();
+		Debug.WriteLine("Ingredient list clicked");
+		await Shell.Current.GoToAsync(nameof(IngredientPage));
 	}
 
 	async void OnAddProtocolClicked(object sender, EventArgs e)

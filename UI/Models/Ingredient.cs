@@ -5,8 +5,8 @@ namespace UI.Models
 	public class Ingredient
 	{
 
-		int _name;
-		public int Name
+		string _name;
+		public string Name
 		{
 			get => _name;
 			set
@@ -18,8 +18,8 @@ namespace UI.Models
 			}
 		}
 
-		int _type;
-		public int Type
+		string _type;
+		public string Type
 		{
 			get => _type;
 			set
