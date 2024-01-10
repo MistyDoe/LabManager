@@ -29,6 +29,7 @@ namespace UI.Models
 			}
 		}
 
+
 		string _type;
 		public string Type
 		{
@@ -42,8 +43,8 @@ namespace UI.Models
 			}
 		}
 
-		int _measurementType;
-		public int MeasurementType
+		string _measurementType;
+		public string MeasurementType
 		{
 			get => _measurementType;
 			set
