@@ -4,7 +4,18 @@ namespace UI.Models
 {
 	public class Ingredient
 	{
-
+		public int _id;
+		public int Id
+		{
+			get => _id;
+			set
+			{
+				if (_id == value)
+					return;
+				_id = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Id)));
+			}
+		}
 		string _name;
 		public string Name
 		{
@@ -56,6 +67,22 @@ namespace UI.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Quantity)));
 			}
 		}
+
+		//TODO : Fix the empty list issue
+		List<Media>? _listOfMedias;
+
+		public List<Media>? ListOfMedias
+		{
+			get => _listOfMedias;
+			set
+			{
+				if (_listOfMedias == value)
+					return;
+				_listOfMedias = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ListOfMedias)));
+			}
+		}
+
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

@@ -17,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.Configure<JsonOptions>(options =>
 {
 	options.SerializerOptions.ReferenceHandler = null;
+	options.SerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.AddAutoMapper(typeof(Program));

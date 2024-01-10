@@ -20,6 +20,8 @@ public static class MauiProgram
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddTransient<ManagePlantPage>();
 
+		builder.Services.AddSingleton<IIngredientRestServices, IngredientRestServices>();
+		builder.Services.AddSingleton<IngredientPage>();
 		return builder.Build();
 	}
 }

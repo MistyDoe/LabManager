@@ -20,7 +20,9 @@ namespace UI.DataServices
 			_url = $"{_baseAddress}api";
 			_jsonSerializerOptions = new JsonSerializerOptions
 			{
-				PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+				PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+				DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault
+
 			};
 
 		}

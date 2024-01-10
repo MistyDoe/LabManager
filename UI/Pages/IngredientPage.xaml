@@ -1,16 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UI.Pages.IngredientPage">
-    <ContentPage.Content>
-        <VerticalStackLayout>
-            <Label Text="Title"/>
-            <Entry Text="{Binding Ingredient.Name}" />
-            <Label Text= "Type"/>
-            <Entry Text="{Binding Ingredient.Type}" />
-            <Label Text= "Quantity"/>
-            <Entry Text="{Binding Ingredient.Quantity}" />
+             x:Class="UI.Pages.IngredientPage"
+             Title="IngredientPage">
+    <CollectionView x:Name="collectionView"                      
+                ItemsLayout="VerticalList"
+                SelectionMode="Single"                
+                Margin="15">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
 
-        </VerticalStackLayout>
-    </ContentPage.Content>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Ing. 1"/>
+                        <Label Text="{Binding Name}"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
