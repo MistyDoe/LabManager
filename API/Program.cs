@@ -190,7 +190,17 @@ app.MapPut("api/LabManager/ingredient/{name}", async (LabManagerDBContext contex
 
 });
 
-
+app.MapDelete("api/LabManager/ingredient/{id}", async (LabManagerDBContext context, int id) =>
+{
+	var ingredient = await context.Ingredients.FirstOrDefaultAsync(pr => pr.Id == id);
+	if (ingredient == null)
+	{
+		return Results.NotFound();
+	}
+	context.Ingredients.Remove(ingredient);
+	await context.SaveChangesAsync();
+	return Results.NoContent();
+});
 //
 app.Run();
 

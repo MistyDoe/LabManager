@@ -67,4 +67,6 @@ public partial class ManagePlantPage : ContentPage
 	{
 		await Shell.Current.GoToAsync("..");
 	}
+
+
 }

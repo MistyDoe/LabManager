@@ -58,4 +58,15 @@ public partial class ManageIngredientPage : ContentPage
 	{
 		await Shell.Current.GoToAsync("..");
 	}
+
+	void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+	{
+		var picker = (Picker)sender;
+		int selectedIndex = picker.SelectedIndex;
+
+		if (selectedIndex != -1)
+		{
+			Ingredient.MeasurementType = picker.Items[selectedIndex];
+		}
+	}
 }
