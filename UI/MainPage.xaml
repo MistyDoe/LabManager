@@ -6,9 +6,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
-        <ToolbarItem    Text="Add new ingredient" Clicked="OnAddIngredientClicked"/>
-        <ToolbarItem    Text="Add new protocol" Clicked="OnAddProtocolClicked"/>
-        
+        <ToolbarItem    Text="Ingredient List" Clicked="OnIngredientListClicked"/>
 
     </ContentPage.ToolbarItems>
     <StackLayout>

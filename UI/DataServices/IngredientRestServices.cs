@@ -97,5 +97,25 @@ namespace UI.DataServices
 			}
 
 		}
+
+		public async Task RemoveIngredientAsyc(int id)
+		{
+			try
+			{
+				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/LabManager/ingredient/{id}");
+				if (response.IsSuccessStatusCode)
+				{
+					Debug.Write("Successfully created plant");
+				}
+				else
+				{
+					Debug.WriteLine("Non Http 2xx response");
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+		}
 	}
 }

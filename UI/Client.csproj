@@ -52,6 +52,9 @@
 	  <MauiXaml Update="Pages\IngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\ManageIngredientPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\ManagePlantPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

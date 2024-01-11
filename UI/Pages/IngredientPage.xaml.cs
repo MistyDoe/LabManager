@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using UI.DataServices;
+using UI.Models;
 
 namespace UI.Pages;
 
@@ -16,4 +18,25 @@ public partial class IngredientPage : ContentPage
 		base.OnAppearing();
 		collectionView.ItemsSource = await _service.GetAllIngredientsAsync();
 	}
+	async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	{
+
+		var navigationParameter = new Dictionary<string, object> {
+			{nameof(Ingredient), e.CurrentSelection.FirstOrDefault() as Ingredient }
+		};
+
+		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);
+	}
+
+	async void OnAddNewIngredient(object sender, EventArgs e)
+	{
+		Debug.WriteLine("Add button clicked");
+
+		var navigationParameter = new Dictionary<string, object> {
+			{nameof(Ingredient), new Ingredient() }
+		};
+
+		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);
+	}
+
 }

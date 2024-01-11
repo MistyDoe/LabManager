@@ -2,10 +2,18 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UI.Pages.IngredientPage"
-             Title="IngredientPage">
+             Title="Ingredients ">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem    Text="Add new Ingredient" Clicked="OnAddNewIngredient"/>
+
+
+    </ContentPage.ToolbarItems>
+    
     <CollectionView x:Name="collectionView"                      
                 ItemsLayout="VerticalList"
-                SelectionMode="Single"                
+                SelectionMode="Single"                  
+                SelectionChanged="OnSelectionChanged"
                 Margin="15">
         <CollectionView.ItemTemplate>
             <DataTemplate>

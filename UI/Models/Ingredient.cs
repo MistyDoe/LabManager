@@ -69,7 +69,6 @@ namespace UI.Models
 			}
 		}
 
-		//TODO : Fix the empty list issue
 		List<Media>? _listOfMedias;
 
 		public List<Media>? ListOfMedias
