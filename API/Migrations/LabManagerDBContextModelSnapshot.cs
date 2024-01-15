@@ -49,17 +49,16 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ProtocolId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Stage")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.Property<int?>("StageId")
+                    b.Property<int?>("protocolId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProtocolId");
-
-                    b.HasIndex("StageId");
+                    b.HasIndex("protocolId");
 
                     b.ToTable("Media");
                 });
@@ -92,7 +91,7 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TotalQt")
+                    b.Property<int?>("TotalQt")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -124,21 +123,6 @@ namespace API.Migrations
                     b.ToTable("Protocols");
                 });
 
-            modelBuilder.Entity("API.Models.Stage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Stagetype")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stage");
-                });
-
             modelBuilder.Entity("IngredientMedia", b =>
                 {
                     b.Property<int>("IngredientsId")
@@ -156,15 +140,11 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Media", b =>
                 {
-                    b.HasOne("API.Models.Protocol", null)
+                    b.HasOne("API.Models.Protocol", "protocol")
                         .WithMany("Media")
-                        .HasForeignKey("ProtocolId");
+                        .HasForeignKey("protocolId");
 
-                    b.HasOne("API.Models.Stage", "Stage")
-                        .WithMany()
-                        .HasForeignKey("StageId");
-
-                    b.Navigation("Stage");
+                    b.Navigation("protocol");
                 });
 
             modelBuilder.Entity("API.Models.Protocol", b =>

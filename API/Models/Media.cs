@@ -1,10 +1,14 @@
-﻿namespace API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace API.Models
 {
 	public class Media
 	{
 		public int Id { get; set; }
-		public Stage? Stage { get; set; }
+		public string Stage { get; set; }
 		public List<Ingredient>? Ingredients { get; } = new();
+		[JsonIgnore]
+		public Protocol? protocol { get; set; }
 
 	}
 }

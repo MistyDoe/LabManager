@@ -21,6 +21,8 @@ namespace API.Data
 				.HasOne(_ => _.Plant)
 				.WithMany(p => p.Protocols)
 				.HasForeignKey(p => p.PlantId);
+
+
 		}
 
 	}
