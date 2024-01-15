@@ -22,6 +22,15 @@ namespace API.Data
 				.WithMany(p => p.Protocols)
 				.HasForeignKey(p => p.PlantId);
 
+			modelBuilder.Entity<Media>()
+				.HasOne(_ => _.Protocol)
+				.WithMany(p => p.Media)
+				.HasForeignKey(p => p.ProtocolId);
+
+			modelBuilder.Entity<Ingredient>()
+				.HasMany(i => i.ListOfMedias)
+				.WithMany(m => m.Ingredients);
+
 
 		}
 

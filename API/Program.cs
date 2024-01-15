@@ -134,14 +134,21 @@ app.MapDelete("api/LabManager/protocols/{id}", async (LabManagerDBContext contex
 
 //Media endpoint
 
-app.MapPost("api/LabManager/media/", async (LabManagerDBContext context, Media media) =>
+app.MapPost("api/LabManager/media/", async (LabManagerDBContext context, IMapper mapper, MediaDTO mediaDTO) =>
 {
+	var media = mapper.Map<Media>(mediaDTO);
 	await context.Media.AddAsync(media);
 
 	await context.SaveChangesAsync();
 
 	return Results.Created($"api/LabManager/plant/{media.Id}", media);
 
+});
+app.MapGet("api/LabManager/media", async (LabManagerDBContext context) =>
+{
+	var media = await context.Media.Include(p => p.Protocol)
+		.ToListAsync();
+	return Results.Ok(media);
 });
 
 //Ingredient endpoint

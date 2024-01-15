@@ -8,7 +8,8 @@ namespace API.Models
 		public string Stage { get; set; }
 		public List<Ingredient>? Ingredients { get; } = new();
 		[JsonIgnore]
-		public Protocol? protocol { get; set; }
+		public Protocol? Protocol { get; set; }
+		public int ProtocolId { get; set; }
 
 	}
 }

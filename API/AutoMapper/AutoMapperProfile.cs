@@ -10,6 +10,7 @@ namespace API.AutoMapper
 		{
 			CreateMap<PlantDTO, Plant>();
 			CreateMap<ProtocolDTO, Protocol>();
+			CreateMap<MediaDTO, Media>();
 		}
 
 	}
