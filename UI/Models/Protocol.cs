@@ -56,6 +56,20 @@ namespace UI.Models
 			}
 		}
 
+		List<Media> _media;
+
+		public List<Media> Media
+		{
+			get => _media;
+			set
+			{
+				if (_media == value)
+					return;
+				_media = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Media)));
+			}
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }

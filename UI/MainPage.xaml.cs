@@ -39,16 +39,21 @@ public partial class MainPage : ContentPage
 	}
 
 
-	async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+	async void OnEditButtonClicked(Object sender, EventArgs e)
 	{
 		Debug.WriteLine("Plant changed clicked");
 
-		var navigationParameter = new Dictionary<string, object>
-		{
-			{nameof(Plant), e.CurrentSelection.FirstOrDefault() as Plant }
+		var navigationParameter = new Dictionary<string, object> {
+			{nameof(Plant), new Plant() }
 		};
 
 		await Shell.Current.GoToAsync(nameof(ManagePlantPage), navigationParameter);
+	}
+
+	async void OnAddProtocolButtonClicked(Object sender, EventArgs e)
+	{
+		Debug.WriteLine("protocol changed clicked");
+		await Shell.Current.GoToAsync(nameof(ManageProtocolPage));
 	}
 
 

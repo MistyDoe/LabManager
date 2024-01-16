@@ -11,15 +11,14 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <CollectionView x:Name="collectionView"                      
-                        ItemsLayout="VerticalList"
-                        SelectionMode="Single"
-                        SelectionChanged="OnSelectionChanged"
+                        ItemsLayout="VerticalList"                                          
                         Margin="15">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="15">
+                    <Grid Padding="20">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -38,6 +37,7 @@
                                Text="{Binding Name}" 
                                FontSize="Medium"  
                                TextColor="DimGrey"/>
+                        <Button Text="Edit" Grid.Column="1" Clicked="OnEditButtonClicked"/>
                         <Line X1="00" 
                               X2="300" 
                               Y1="100" 
@@ -76,6 +76,7 @@
                                TextColor="LightSlateGray"/>
                         <Label Grid.Row="7"  
                                Text="Protocols:"/>
+                        
                         <ListView Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Protocols}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -87,6 +88,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
 
+                        <Button Text="+" Grid.Column="0" Grid.Row="8" Clicked="OnAddProtocolButtonClicked"/>
                     </Grid>
 
                 </DataTemplate>

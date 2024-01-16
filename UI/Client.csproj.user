@@ -20,5 +20,8 @@
     <MauiXaml Update="Pages\ManagePlantPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Pages\ManageProtocolPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
   </ItemGroup>
 </Project>
