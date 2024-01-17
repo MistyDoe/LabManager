@@ -6,7 +6,7 @@
 		public Protocol Protocol { get; set; }
 		public Plant Plant { get; set; }
 		public int Quantity { get; set; }
-		public string Stage { get; set; }
+		public Media Media { get; set; }
 		public DateTime Date { get; set; }
 		public bool Contaminated { get; set; }
 		public DateTime ContamDate { get; set; }
