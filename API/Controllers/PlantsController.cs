@@ -1,96 +1,124 @@
-﻿using API.Data;
-using API.DTOs;
-using API.Models;
-using AutoMapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using API.Data;
+using API.Models;
 
-namespace API.Controllers;
-[Route("api/LabManager/[controller]")]
-[ApiController]
-public class PlantsController : ControllerBase
+namespace API.Controllers
 {
-	private readonly LabManagerDBContext _context;
-	private readonly IMapper _mapper;
+    [Route("api/[controller]")]
+    [ApiController]
+    public class PlantsController : ControllerBase
+    {
+        private readonly LabManagerDBContext _context;
 
-	public PlantsController(LabManagerDBContext context, IMapper mapper)
-	{
-		_context = context;
-		_mapper = mapper;
-	}
+        public PlantsController(LabManagerDBContext context)
+        {
+            _context = context;
+        }
 
-	[HttpGet]
-	public async Task<IActionResult> Index()
-	{
-		return _context.Plants != null ? Ok(
-					await _context.Plants
-					.Include(p => p.Protocols)
-					.ToListAsync()) : NotFound();
+        // GET: api/Plants
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Plant>>> GetPlants()
+        {
+          if (_context.Plants == null)
+          {
+              return NotFound();
+          }
+            return await _context.Plants.ToListAsync();
+        }
 
-	}
+        // GET: api/Plants/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Plant>> GetPlant(int id)
+        {
+          if (_context.Plants == null)
+          {
+              return NotFound();
+          }
+            var plant = await _context.Plants.FindAsync(id);
 
-	[HttpGet]
-	[Route("api/LabManager/[controller]/{id}")]
-	public async Task<IActionResult> Details(int? id)
-	{
-		if (id == null || _context.Plants == null)
-		{
-			return NotFound();
-		}
+            if (plant == null)
+            {
+                return NotFound();
+            }
 
-		var plant = await _context.Plants
-			.Include(p => p.Protocols)
-			.FirstOrDefaultAsync(pl => pl.Id == id);
-		if (plant == null)
-		{
-			return NotFound();
-		}
+            return plant;
+        }
 
-		return Ok(plant);
-	}
+        // PUT: api/Plants/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPlant(int id, Plant plant)
+        {
+            if (id != plant.Id)
+            {
+                return BadRequest();
+            }
 
+            _context.Entry(plant).State = EntityState.Modified;
 
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PlantExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
-	[HttpPost]
-	[ValidateAntiForgeryToken]
-	public async Task<IActionResult> Create(PlantDTO plantDTO)
-	{
-		var plant = _mapper.Map<Plant>(plantDTO);
-		plant.TotalQt = plantDTO.InTSQt + plantDTO.MotherPlantsQt;
+            return NoContent();
+        }
 
-		await _context.Plants.AddAsync(plant);
+        // POST: api/Plants
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Plant>> PostPlant(Plant plant)
+        {
+          if (_context.Plants == null)
+          {
+              return Problem("Entity set 'LabManagerDBContext.Plants'  is null.");
+          }
+            _context.Plants.Add(plant);
+            await _context.SaveChangesAsync();
 
-		await _context.SaveChangesAsync();
+            return CreatedAtAction("GetPlant", new { id = plant.Id }, plant);
+        }
 
-		return Ok(plant);
+        // DELETE: api/Plants/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeletePlant(int id)
+        {
+            if (_context.Plants == null)
+            {
+                return NotFound();
+            }
+            var plant = await _context.Plants.FindAsync(id);
+            if (plant == null)
+            {
+                return NotFound();
+            }
 
-	}
+            _context.Plants.Remove(plant);
+            await _context.SaveChangesAsync();
 
-	// GET: Plants/Edit/5
-	[HttpPatch]
-	public async Task<IActionResult> Edit(PlantDTO plantDTO)
-	{
-		Plant updatedPlant = new Plant();
+            return NoContent();
+        }
 
-		updatedPlant = _mapper.Map<Plant>(plantDTO);
-		updatedPlant.TotalQt = plantDTO.InTSQt + plantDTO.MotherPlantsQt + plantDTO.ForSaleQt;
-		_context.Update(updatedPlant);
-		await _context.SaveChangesAsync();
-		return Ok();
-	}
-
-	// GET: Plants/Delete/5
-	[HttpDelete]
-	public async Task<IActionResult> Delete(int? id)
-	{
-		var plantModel = await _context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
-		if (plantModel == null)
-		{
-			return BadRequest("Plant not found");
-		}
-		_context.Plants.Remove(plantModel);
-		await _context.SaveChangesAsync();
-		return Ok();
-	}
-
+        private bool PlantExists(int id)
+        {
+            return (_context.Plants?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+    }
 }

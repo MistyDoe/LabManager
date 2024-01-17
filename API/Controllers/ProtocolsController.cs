@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-	[Route("api/LabManager/[controller]")]
+	[Route("[controller]")]
 	[ApiController]
 	public class ProtocolsController : ControllerBase
 	{
@@ -49,29 +49,29 @@ namespace API.Controllers
 
 		// PUT: api/Protocols/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-		[HttpPut("{id}")]
+		[HttpPatch("{id}")]
 		public async Task<IActionResult> PutProtocol(int id, ProtocolDTO protocolDTO)
 		{
 			var updatedProtocol = _mapper.Map<Protocol>(protocolDTO);
 			_context.Update(updatedProtocol);
 			await _context.SaveChangesAsync();
 			return Ok();
-
 		}
 
 		// POST: api/Protocols
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 		[HttpPost]
-		public async Task<ActionResult<Protocol>> PostProtocol(Protocol protocol)
+		public async Task<ActionResult<Protocol>> PostProtocol(ProtocolDTO protocolDTO)
 		{
 			if (_context.Protocols == null)
 			{
 				return Problem("Entity set 'LabManagerDBContext.Protocols'  is null.");
 			}
-			_context.Protocols.Add(protocol);
+			var updatedProtocol = _mapper.Map<Protocol>(protocolDTO);
+			_context.Update(updatedProtocol);
 			await _context.SaveChangesAsync();
+			return Ok();
 
-			return CreatedAtAction("GetProtocol", new { id = protocol.Id }, protocol);
 		}
 
 		// DELETE: api/Protocols/5
@@ -94,9 +94,5 @@ namespace API.Controllers
 			return NoContent();
 		}
 
-		private bool ProtocolExists(int id)
-		{
-			return (_context.Protocols?.Any(e => e.Id == id)).GetValueOrDefault();
-		}
 	}
 }
