@@ -9,6 +9,7 @@ namespace API.Models
 		public List<Ingredient>? Ingredients { get; } = new();
 		[JsonIgnore]
 		public Protocol? Protocol { get; set; }
+		public float PH { get; set; }
 		public int ProtocolId { get; set; }
 
 	}
