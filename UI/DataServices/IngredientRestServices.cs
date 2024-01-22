@@ -56,7 +56,7 @@ namespace UI.DataServices
 			{
 				string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/LabManager/ingredient/", content);
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/ingredient/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
@@ -102,7 +102,7 @@ namespace UI.DataServices
 		{
 			try
 			{
-				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/LabManager/ingredient/{id}");
+				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/ingredient/{id}");
 				if (response.IsSuccessStatusCode)
 				{
 					Debug.Write("Successfully created plant");

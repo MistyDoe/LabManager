@@ -28,6 +28,14 @@ namespace API.Controllers
 		  .ToListAsync();
 			return Ok(protocols);
 		}
+		[HttpGet("/ForPlant{id}")]
+		public async Task<ActionResult<IEnumerable<Protocol>>> GetProtocolsForPlant(int id)
+		{
+			var protocols = await _context.Protocols
+				.Where(p => p.PlantId == id)
+				.ToListAsync();
+			return Ok(protocols);
+		}
 
 		// GET: api/Protocols/5
 		[HttpGet("{id}")]

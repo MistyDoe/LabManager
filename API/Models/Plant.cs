@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace API.Models
 {
@@ -15,6 +16,7 @@ namespace API.Models
 		public bool InTS { get; set; }
 		public int InTSQt { get; set; }
 		public List<Protocol>? Protocols { get; set; }
+		[JsonIgnore]
 		public List<PlantInTS> PlantInTs { get; set; }
 	}
 

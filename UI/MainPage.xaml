@@ -11,7 +11,9 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <CollectionView x:Name="collectionView"                      
-                        ItemsLayout="VerticalList"                                          
+                        ItemsLayout="VerticalList" 
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged"
                         Margin="15">
 
             <CollectionView.ItemTemplate>
@@ -27,7 +29,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                            
+
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -37,7 +39,7 @@
                                Text="{Binding Name}" 
                                FontSize="Medium"  
                                TextColor="DimGrey"/>
-                        <Button Text="Edit" Grid.Column="1" Clicked="OnEditButtonClicked"/>
+                        
                         <Line X1="00" 
                               X2="300" 
                               Y1="100" 
@@ -76,21 +78,18 @@
                                TextColor="LightSlateGray"/>
                         <Label Grid.Row="7"  
                                Text="Protocols:"/>
-                        
                         <ListView Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Protocols}">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextCell Grid.Row="1"  Text="{Binding Description}"
                                                Detail="{Binding Resource}"/>
-                                    
-                                    
+
+
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-
-                        <Button Text="+" Grid.Column="0" Grid.Row="8" Clicked="OnAddProtocolButtonClicked"/>
+                        
                     </Grid>
-
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

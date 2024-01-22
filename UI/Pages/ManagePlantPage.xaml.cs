@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using UI.DataServices;
 using UI.Models;
@@ -7,6 +8,8 @@ namespace UI.Pages;
 public partial class ManagePlantPage : ContentPage
 {
 	private IPlantRestDataServices _plantService;
+	public IProtocolRestService _protocolService;
+	public ObservableCollection<Protocol> protocols;
 	Plant _plant;
 	bool _isNew;
 	public Plant Plant
@@ -19,14 +22,18 @@ public partial class ManagePlantPage : ContentPage
 			OnPropertyChanged();
 		}
 	}
-	public ManagePlantPage(IPlantRestDataServices plantService)
+	public ManagePlantPage(IPlantRestDataServices plantService, IProtocolRestService protocolService)
 	{
 		InitializeComponent();
 
 		_plantService = plantService;
+		_protocolService = protocolService;
 		BindingContext = this;
 	}
-
+	private async void LoadProtocols()
+	{
+		var protocols = await _protocolService.GetAllProtcolsAsync();
+	}
 	bool IsNew(Plant plant)
 	{
 		if (plant.Id == 0)
@@ -43,6 +50,7 @@ public partial class ManagePlantPage : ContentPage
 	{
 		Plant.InTS = e.Value;
 	}
+
 	async void OnSaveButtonClicked(Object sender, EventArgs e)
 	{
 		if (_isNew)
@@ -67,6 +75,5 @@ public partial class ManagePlantPage : ContentPage
 	{
 		await Shell.Current.GoToAsync("..");
 	}
-
 
 }

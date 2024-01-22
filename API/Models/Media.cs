@@ -11,6 +11,7 @@ namespace API.Models
 		public Protocol? Protocol { get; set; }
 		public float PH { get; set; }
 		public int ProtocolId { get; set; }
+		[JsonIgnore]
 		public List<PlantInTS> PlantInTs { get; set; }
 
 	}

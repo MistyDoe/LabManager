@@ -13,6 +13,7 @@ namespace API.Models
 		public string Description { get; set; }
 		[JsonIgnore]
 		public Plant? Plant { get; set; }
+		[JsonIgnore]
 		public List<PlantInTS> PlantInTs { get; set; }
 	}
 }

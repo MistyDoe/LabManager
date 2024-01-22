@@ -30,7 +30,7 @@ namespace UI.DataServices
 			{
 				string jsonPlants = JsonSerializer.Serialize<Plant>(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/LabManager/plant/", content);
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/plant/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
@@ -54,7 +54,7 @@ namespace UI.DataServices
 
 			try
 			{
-				HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/LabManager/Plant");
+				HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Plants");
 				if (response.IsSuccessStatusCode)
 				{
 					string content = await response.Content.ReadAsStringAsync();
@@ -76,7 +76,7 @@ namespace UI.DataServices
 		{
 			try
 			{
-				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/LabManager/Plant/{id}");
+				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/Plants/{id}");
 				if (response.IsSuccessStatusCode)
 				{
 					Debug.Write("Successfully created plant");
@@ -98,7 +98,7 @@ namespace UI.DataServices
 			{
 				string jsonPlants = JsonSerializer.Serialize<Plant>(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/LabManager/Plant/{plant.Id}", content);
+				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Plants/{plant.Id}", content);
 
 				if (response.IsSuccessStatusCode)
 				{

@@ -30,6 +30,7 @@
                    IsVisible="{Binding Plant.InTS}"
                    Placeholder="Number Of plants in tissue culture"
                 Text="{Binding Plant.InTSQt}"/>
+        <Picker ItemsSource="{Binding Plant.Protocols}" Title="Select Protocol" ItemDisplayBinding="{Binding Plant.Protocol.Description}" />
         <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
         <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>
