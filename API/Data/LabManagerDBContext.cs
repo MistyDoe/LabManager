@@ -34,5 +34,7 @@ namespace API.Data
 
 		}
 
+		public DbSet<API.Models.PlantInTS>? PlantInTS { get; set; }
+
 	}
 }

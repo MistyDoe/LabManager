@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5ZExBlVbeaICBXVDNooSwOC6FomHFrkpZ/hBDqUrAN8tVj4+EBV5PIGJ0GSnWfmPm7GG33XjeO0Ohq4unVOoVg==",
+  "dgSpecHash": "6AOSheUEKsCv6fxl0ElFYAAdl5vJJXbq0ZOtjKMdWOnx+o1+Ab0fuvwsGTmn+21xfjb8qJVzgVLzY+XcXZyVxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\migli\\source\\repos\\LabManager\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -86,8 +86,8 @@
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.10\\microsoft.entityframeworkcore.relational.7.0.10.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\7.0.10\\microsoft.entityframeworkcore.sqlite.7.0.10.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\7.0.10\\microsoft.entityframeworkcore.sqlite.core.7.0.10.nupkg.sha512",
-    "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.23\\microsoft.entityframeworkcore.sqlserver.6.0.23.nupkg.sha512",
-    "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.23\\microsoft.entityframeworkcore.tools.6.0.23.nupkg.sha512",
+    "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.26\\microsoft.entityframeworkcore.sqlserver.6.0.26.nupkg.sha512",
+    "C:\\Users\\migli\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.26\\microsoft.entityframeworkcore.tools.6.0.26.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\migli\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
