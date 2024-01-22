@@ -15,6 +15,7 @@ namespace API.Models
 		public bool InTS { get; set; }
 		public int InTSQt { get; set; }
 		public List<Protocol>? Protocols { get; set; }
+		public List<PlantInTS> PlantInTs { get; set; }
 	}
 
 
