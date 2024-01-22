@@ -1,4 +1,3 @@
-using System.Collections.ObjectModel;
 using System.Diagnostics;
 using UI.DataServices;
 using UI.Models;
@@ -9,7 +8,7 @@ public partial class ManagePlantPage : ContentPage
 {
 	private IPlantRestDataServices _plantService;
 	public IProtocolRestService _protocolService;
-	public ObservableCollection<Protocol> protocols;
+	public List<Protocol> Protocols { get; set; } = new();
 	Plant _plant;
 	bool _isNew;
 	public Plant Plant
@@ -25,14 +24,23 @@ public partial class ManagePlantPage : ContentPage
 	public ManagePlantPage(IPlantRestDataServices plantService, IProtocolRestService protocolService)
 	{
 		InitializeComponent();
-
 		_plantService = plantService;
 		_protocolService = protocolService;
 		BindingContext = this;
+		LoadProtocols(Plant.Id);
 	}
-	private async void LoadProtocols()
+	private async void LoadProtocols(int Id)
 	{
-		var protocols = await _protocolService.GetAllProtcolsAsync();
+		var protocols = await _protocolService.GetProtocolsForPlant(Id);
+
+		if (protocols is null)
+			return;
+
+		if (protocols.Count > 0)
+			protocols.Clear();
+
+		Protocols.AddRange(protocols);
+
 	}
 	bool IsNew(Plant plant)
 	{

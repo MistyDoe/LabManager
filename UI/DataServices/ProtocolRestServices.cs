@@ -117,7 +117,7 @@ class ProtocolRestServices : IProtocolRestService
 		}
 	}
 
-	async Task<List<Protocol>> GetProtocolsForPlant(int id)
+	public async Task<List<Protocol>> GetProtocolsForPlant(int id)
 	{
 		List<Protocol> protocols = new List<Protocol>();
 

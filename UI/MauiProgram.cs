@@ -23,8 +23,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IIngredientRestServices, IngredientRestServices>();
 		builder.Services.AddSingleton<IngredientPage>();
 		builder.Services.AddSingleton<ManageIngredientPage>();
-
-		builder.Services.AddSingleton<ManageProtocolPage>();
 		return builder.Build();
 	}
 }

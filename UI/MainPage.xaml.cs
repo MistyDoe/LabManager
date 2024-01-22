@@ -18,8 +18,16 @@ public partial class MainPage : ContentPage
 
 	protected async override void OnAppearing()
 	{
-		base.OnAppearing();
-		collectionView.ItemsSource = await _plantService.GetAllPlantsAsync();
+		try
+		{
+			base.OnAppearing();
+			collectionView.ItemsSource = await _plantService.GetAllPlantsAsync();
+
+		}
+		catch (Exception ex)
+		{
+			Debug.WriteLine(ex.Message);
+		}
 
 	}
 
@@ -41,23 +49,11 @@ public partial class MainPage : ContentPage
 	}
 
 
-	async void OnEditButtonClicked(object sender, EventArgs e)
+	private void SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-		Debug.WriteLine("Plant changed clicked", e.ToString());
 
-		var navigationParameter = new Dictionary<string, object> {
-			{nameof(Plant), new Plant() }
-		};
-		await Shell.Current.GoToAsync(nameof(ManagePlantPage), navigationParameter);
+
+		Shell.Current.GoToAsync(nameof(ManagePlantPage));
 	}
-
-	async void OnSelectionChanged(object sender, SelectedItemChangedEventArgs e)
-	{
-		Debug.WriteLine("protocol changed clicked");
-
-		await Shell.Current.GoToAsync(nameof(ManagePlantPage));
-	}
-
-
 }
 
