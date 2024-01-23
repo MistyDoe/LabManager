@@ -14,6 +14,6 @@ namespace API.Models
 		[JsonIgnore]
 		public Plant? Plant { get; set; }
 		[JsonIgnore]
-		public List<PlantInTS> PlantInTs { get; set; }
+		public List<PlantInTS>? PlantInTs { get; set; }
 	}
 }

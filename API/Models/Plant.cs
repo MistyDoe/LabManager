@@ -17,7 +17,7 @@ namespace API.Models
 		public int InTSQt { get; set; }
 		public List<Protocol>? Protocols { get; set; }
 		[JsonIgnore]
-		public List<PlantInTS> PlantInTs { get; set; }
+		public List<PlantInTS>? PlantInTs { get; set; }
 	}
 
 

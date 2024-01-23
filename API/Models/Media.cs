@@ -12,7 +12,7 @@ namespace API.Models
 		public float PH { get; set; }
 		public int ProtocolId { get; set; }
 		[JsonIgnore]
-		public List<PlantInTS> PlantInTs { get; set; }
+		public List<PlantInTS>? PlantInTs { get; set; }
 
 	}
 }

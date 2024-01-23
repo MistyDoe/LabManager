@@ -11,6 +11,6 @@ namespace API.DTOs
 		public int? ForSaleQt { get; set; }
 		public bool InTS { get; set; }
 		public int? InTSQt { get; set; }
-		public List<Protocol> Protocols { get; set; }
+		public List<Protocol>? Protocols { get; set; }
 	}
 }

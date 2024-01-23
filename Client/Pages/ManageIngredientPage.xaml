@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Client.Pages.ManageIngredientPage"
+             Title="Manage Ingredient">
+    <VerticalStackLayout>
+        
+        <Label Text="Name"/>
+            <Entry  
+                Text="{Binding Ingredient.Name}"
+                Placeholder = "Name"/>
+        <Label Text="Type"/>
+            <Entry  
+                Text="{Binding Ingredient.Type}"
+                Placeholder = "Type"/>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Grid.Row="0"  Text="Qunatity"/>
+            <Label Grid.Column="2" Grid.Row="0" Text="MeasurementType"/>
+            <Entry Grid.Column="0" Grid.Row="1" Text="{Binding Ingredient.Quantity}" Placeholder="0" Keyboard="Numeric"/>
+            <Picker Grid.Column="1" Grid.Row="1" x:Name="picker" SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String >mg</x:String>
+                        <x:String>g</x:String>
+                        <x:String>kg</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+        <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
+        <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
+        <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
