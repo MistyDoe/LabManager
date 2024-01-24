@@ -116,22 +116,22 @@ namespace API.Migrations
                     b.Property<DateTime?>("ContamDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Contaminated")
+                    b.Property<bool?>("Contaminated")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("MediaId")
+                    b.Property<int?>("MediaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("PlantId")
+                    b.Property<int?>("PlantId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ProtocolId")
+                    b.Property<int?>("ProtocolId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -154,9 +154,6 @@ namespace API.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("PlantId")
                         .HasColumnType("INTEGER");
@@ -210,21 +207,15 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Media", "Media")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("MediaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MediaId");
 
                     b.HasOne("API.Models.Plant", "Plant")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("PlantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PlantId");
 
                     b.HasOne("API.Models.Protocol", "Protocol")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("ProtocolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProtocolId");
 
                     b.Navigation("Media");
 

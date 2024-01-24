@@ -17,7 +17,7 @@ namespace Client.Models
 			}
 		}
 
-		string _name;
+		string? _name;
 
 		public string Name
 		{
@@ -31,18 +31,6 @@ namespace Client.Models
 			}
 		}
 
-		int _totalQt;
-		public int TotalQt
-		{
-			get => _totalQt;
-			set
-			{
-				if (_totalQt == value)
-					return;
-				_totalQt = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_totalQt)));
-			}
-		}
 
 		int _motherPlantsQt;
 		public int MotherPlantsQt
@@ -108,21 +96,8 @@ namespace Client.Models
 			}
 		}
 
-		string _Genus;
 
-		public string Genus
-		{
-			get => _Genus;
-			set
-			{
-				if (_Genus == value)
-					return;
-				_Genus = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genus)));
-			}
-		}
-
-		List<Protocol> _protocols;
+		List<Protocol>? _protocols;
 
 		public List<Protocol> Protocols
 		{

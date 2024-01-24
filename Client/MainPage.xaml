@@ -7,8 +7,9 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
         <ToolbarItem    Text="Ingredient List" Clicked="OnIngredientListClicked"/>
-
     </ContentPage.ToolbarItems>
+    <ScrollView VerticalOptions="FillAndExpand">
+        
     <StackLayout>
         <CollectionView x:Name="collectionView"                      
                         ItemsLayout="VerticalList" 
@@ -18,7 +19,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="20">
+                    <Grid Padding="5" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -35,16 +36,11 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.ColumnSpan="2" 
+                            <Label Grid.ColumnSpan="2" 
                                Text="{Binding Name}" 
                                FontSize="Medium"  
                                TextColor="DimGrey"/>
-                        <Line X1="00" 
-                              X2="300" 
-                              Y1="100" 
-                              Y2="100"  
-                              Stroke="Aqua"/>
-                        <Label Grid.Row="1"  
+                            <Label Grid.Row="1"  
                                Text="Total Owned:"  />
                         <Label Grid.Row="1" 
                                Grid.Column="1" 
@@ -87,10 +83,10 @@
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
     </StackLayout>
+    </ScrollView>
 </ContentPage>

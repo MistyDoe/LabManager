@@ -2,7 +2,7 @@
 
 namespace Client.DTOs
 {
-	internal class PlantDTO
+	public class PlantDTO
 	{
 		public int Id { get; set; }
 		public string? Name { get; set; }

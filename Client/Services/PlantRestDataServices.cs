@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 using Client.DTOs;
 using Client.Models;
 using System.Diagnostics;
@@ -13,11 +13,10 @@ namespace Client.Services
 		private readonly string _baseAddress;
 		private readonly string _url;
 		private readonly JsonSerializerOptions _jsonSerializerOptions;
-		public IMapper _mapper { get; set; }
 
-		public PlantRestDataServices(IMapper mapper)
+		public PlantRestDataServices()
 		{
-			_mapper = mapper;
+
 			_httpClient = new HttpClient();
 			_baseAddress = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5229/" : "http://localhost:5229/";
 			_url = $"{_baseAddress}api";
@@ -34,7 +33,7 @@ namespace Client.Services
 			{
 				string jsonPlants = JsonSerializer.Serialize<Plant>(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/plant/", content);
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Plants/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
@@ -98,12 +97,21 @@ namespace Client.Services
 
 		public async Task UpdatePlantAsync(Plant plant)
 		{
-			PlantDTO plantDTO = _mapper.Map<PlantDTO>(plant);
+			PlantDTO plantDTO = new PlantDTO();
+			plantDTO.Id = plant.Id;
+			plantDTO.Name = plant.Name;
+			plantDTO.MotherPlantsQt = plant.MotherPlantsQt;
+			plantDTO.ForSale = plant.ForSale;
+			plantDTO.ForSaleQt = plant.ForSaleQt;
+			plantDTO.InTS = plant.InTS;
+			plantDTO.InTSQt = plant.InTSQt;
+			plantDTO.Protocols = plant.Protocols;
+
 			try
 			{
 				string jsonPlants = JsonSerializer.Serialize(plantDTO, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Plants/{plantDTO.Id}", content);
+				HttpResponseMessage response = await _httpClient.PatchAsync($"{_url}/Plants/{plantDTO.Id}", content);
 
 				if (response.IsSuccessStatusCode)
 				{

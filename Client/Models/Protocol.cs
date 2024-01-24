@@ -17,7 +17,7 @@ namespace Client.Models
 			}
 		}
 
-		public string _resource;
+		public string? _resource;
 		public string Resource
 		{
 			get => _resource;
@@ -43,7 +43,20 @@ namespace Client.Models
 			}
 		}
 
-		public string _description;
+		public string? _plantPart;
+		public string PlantPart
+		{
+			get => _plantPart;
+			set
+			{
+				if (_plantPart == value)
+					return;
+				_plantPart = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PlantPart)));
+			}
+		}
+
+		public string? _description;
 		public string Description
 		{
 			get => _description;
@@ -56,7 +69,7 @@ namespace Client.Models
 			}
 		}
 
-		List<Media> _media;
+		List<Media>? _media;
 
 		public List<Media> Media
 		{
