@@ -7,6 +7,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
         <ToolbarItem    Text="Ingredient List" Clicked="OnIngredientListClicked"/>
+        <ToolbarItem Text="Add new protocol" Clicked="OnAddProtocolAdded" />
     </ContentPage.ToolbarItems>
     <ScrollView VerticalOptions="FillAndExpand">
         

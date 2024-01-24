@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Client.Pages.ManageProtocolPage"
-             Title="Edit Protocl">
+             Title="Add new protocol">
     <VerticalStackLayout>
         <Label Text="In Protocol edit"/>
     </VerticalStackLayout>

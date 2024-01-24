@@ -48,6 +48,11 @@ public partial class MainPage : ContentPage
 		await Shell.Current.GoToAsync(nameof(IngredientPage));
 	}
 
+	async void OnAddProtocolAdded(object sender, EventArgs e)
+	{
+		Debug.WriteLine("Protocol clicked list clicked");
+		await Shell.Current.GoToAsync(nameof(ManageProtocolPage));
+	}
 
 	private void SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
@@ -57,5 +62,6 @@ public partial class MainPage : ContentPage
 		};
 		Shell.Current.GoToAsync(nameof(ManagePlantPage), navigationParameter);
 	}
+
 }
 
