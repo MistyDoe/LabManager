@@ -18,6 +18,7 @@ namespace Client.Models
 		}
 
 		string? _name;
+		string? _genus;
 
 		public string Name
 		{
@@ -30,6 +31,19 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
 			}
 		}
+
+		public string Genus
+		{
+			get => _genus;
+			set
+			{
+				if (_genus == value)
+					return;
+				_genus = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+			}
+		}
+
 
 
 		int _motherPlantsQt;

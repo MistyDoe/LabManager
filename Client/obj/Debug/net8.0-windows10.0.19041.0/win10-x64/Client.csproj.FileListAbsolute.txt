@@ -177,3 +177,5 @@ C:\Users\migli\source\repos\LabManager\Client\obj\Debug\net8.0-windows10.0.19041
 C:\Users\migli\source\repos\LabManager\Client\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\migli\source\repos\LabManager\Client\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 C:\Users\migli\source\repos\LabManager\Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AutoMapper.dll
+C:\Users\migli\source\repos\LabManager\Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\migli\source\repos\LabManager\Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Newtonsoft.Json.dll
