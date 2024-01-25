@@ -7,7 +7,10 @@
         <Label Text="Title"/>
         <Entry Text="{Binding Plant.Name}" 
             Placeholder="Name"/>
-        <Label Text="In Stock"/>
+        <Label Text="Genus"/>
+        <Entry Text="{Binding Pant.Genus}"
+               Placeholder="Genus"/>
+            <Label Text="In Stock"/>
         <Entry Keyboard="Numeric"
                 Placeholder="Mother plants"
                 Text="{Binding Plant.MotherPlantsQt}"/>

@@ -1,6 +1,4 @@
-﻿
-using Client.DTOs;
-using Client.Models;
+﻿using Client.Models;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -97,21 +95,11 @@ namespace Client.Services
 
 		public async Task UpdatePlantAsync(Plant plant)
 		{
-			PlantDTO plantDTO = new PlantDTO();
-			plantDTO.Id = plant.Id;
-			plantDTO.Name = plant.Name;
-			plantDTO.MotherPlantsQt = plant.MotherPlantsQt;
-			plantDTO.ForSale = plant.ForSale;
-			plantDTO.ForSaleQt = plant.ForSaleQt;
-			plantDTO.InTS = plant.InTS;
-			plantDTO.InTSQt = plant.InTSQt;
-			plantDTO.Protocols = plant.Protocols;
-
 			try
 			{
-				string jsonPlants = JsonSerializer.Serialize(plantDTO, _jsonSerializerOptions);
+				string jsonPlants = JsonSerializer.Serialize(plant, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PatchAsync($"{_url}/Plants/{plantDTO.Id}", content);
+				HttpResponseMessage response = await _httpClient.PatchAsync($"{_url}/Plants/{plant.Id}", content);
 
 				if (response.IsSuccessStatusCode)
 				{

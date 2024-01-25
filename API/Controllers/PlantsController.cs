@@ -2,6 +2,7 @@
 using API.DTOs;
 using API.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -52,14 +53,27 @@ namespace API.Controllers
 		// PUT: api/Plants/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 		[HttpPatch("{id}")]
-		public async Task<IActionResult> PutPlant(PlantDTO plantDTO)
+		public async Task<IActionResult> PutPlant(int id, [FromForm] JsonPatchDocument<Plant> patch)
 		{
-			Plant updatedPlant = new Plant();
+			if (patch == null)
+			{
+				return BadRequest(ModelState);
+			}
+			var plant = await _context.Plants.FirstOrDefaultAsync(pl => pl.Id == id);
+			if (plant == null)
+			{
+				return BadRequest(ModelState);
+			}
+			patch.ApplyTo(plant, ModelState);
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
 
-			updatedPlant = _mapper.Map<Plant>(plantDTO);
-			updatedPlant.TotalQt = plantDTO.InTSQt + plantDTO.MotherPlantsQt + plantDTO.ForSaleQt;
-			_context.Update(updatedPlant);
-			await _context.SaveChangesAsync();
+			_context.Plants.Update(plant);
+			_context.SaveChanges();
+
+
 			return NoContent();
 		}
 		// POST: api/Plants

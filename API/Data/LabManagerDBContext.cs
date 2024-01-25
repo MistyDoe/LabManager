@@ -20,12 +20,14 @@ namespace API.Data
 			modelBuilder.Entity<Protocol>()
 				.HasOne(_ => _.Plant)
 				.WithMany(p => p.Protocols)
-				.HasForeignKey(p => p.PlantId);
+				.HasForeignKey(p => p.PlantId)
+				.OnDelete(DeleteBehavior.Cascade);
 
 			modelBuilder.Entity<Media>()
 				.HasOne(_ => _.Protocol)
 				.WithMany(p => p.Media)
-				.HasForeignKey(p => p.ProtocolId);
+				.HasForeignKey(p => p.ProtocolId)
+				.OnDelete(DeleteBehavior.Cascade);
 
 			modelBuilder.Entity<Ingredient>()
 				.HasMany(i => i.ListOfMedias)
@@ -34,19 +36,22 @@ namespace API.Data
 			modelBuilder.Entity<PlantInTS>()
 				.HasOne(_ => _.Protocol)
 				.WithMany(_ => _.PlantInTs)
-				.HasForeignKey(p => p.ProtocolId);
+				.HasForeignKey(p => p.ProtocolId)
+				.OnDelete(DeleteBehavior.Cascade);
 
 
 			modelBuilder.Entity<PlantInTS>()
 				.HasOne(_ => _.Plant)
 				.WithMany(_ => _.PlantInTs)
-				.HasForeignKey(p => p.PlantId);
+				.HasForeignKey(p => p.PlantId)
+				.OnDelete(DeleteBehavior.Cascade);
 
 
 			modelBuilder.Entity<PlantInTS>()
 				.HasOne(_ => _.Media)
 				.WithMany(_ => _.PlantInTs)
-				.HasForeignKey(p => p.MediaId);
+				.HasForeignKey(p => p.MediaId)
+				.OnDelete(DeleteBehavior.Cascade);
 
 		}
 

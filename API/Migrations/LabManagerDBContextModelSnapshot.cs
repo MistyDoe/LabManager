@@ -207,15 +207,18 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Media", "Media")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("MediaId");
+                        .HasForeignKey("MediaId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Models.Plant", "Plant")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("PlantId");
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("API.Models.Protocol", "Protocol")
                         .WithMany("PlantInTs")
-                        .HasForeignKey("ProtocolId");
+                        .HasForeignKey("ProtocolId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Media");
 
@@ -228,7 +231,8 @@ namespace API.Migrations
                 {
                     b.HasOne("API.Models.Plant", "Plant")
                         .WithMany("Protocols")
-                        .HasForeignKey("PlantId");
+                        .HasForeignKey("PlantId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Plant");
                 });

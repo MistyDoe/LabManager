@@ -1,4 +1,5 @@
 using API.Data;
+using API.Services;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,11 @@ opt.UseSqlite(builder.Configuration.GetConnectionString("SqLiteConnection")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
 
+builder.Services.AddControllers(options =>
+{
+	options.InputFormatters.Insert(0, Patch.GetJsonPatchInputFormatter());
+});
+
 builder.Services.Configure<JsonOptions>(options =>
 {
 	options.SerializerOptions.ReferenceHandler = null;
@@ -21,6 +27,7 @@ builder.Services.Configure<JsonOptions>(options =>
 builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 
