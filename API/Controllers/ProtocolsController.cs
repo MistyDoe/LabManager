@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-	[Route("[controller]")]
+	[Route("api/[controller]")]
 	[ApiController]
 	public class ProtocolsController : ControllerBase
 	{
@@ -57,7 +57,7 @@ namespace API.Controllers
 
 		// PUT: api/Protocols/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-		[HttpPatch("{id}")]
+		[HttpPut("{id}")]
 		public async Task<IActionResult> PutProtocol(int id, ProtocolDTO protocolDTO)
 		{
 			var updatedProtocol = _mapper.Map<Protocol>(protocolDTO);
