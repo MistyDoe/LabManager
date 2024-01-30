@@ -48,13 +48,13 @@ public partial class MainPage : ContentPage
 		await Shell.Current.GoToAsync(nameof(IngredientPage));
 	}
 
-	async void OnAddProtocolAdded(object sender, EventArgs e)
+	async void OnProtocolClicked(object sender, EventArgs e)
 	{
 		Debug.WriteLine("Protocol clicked list clicked");
-		await Shell.Current.GoToAsync(nameof(ManageProtocolPage));
+		await Shell.Current.GoToAsync(nameof(ProtocolPage));
 	}
 
-	private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+	private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 
 		var navigationParameter = new Dictionary<string, object> {

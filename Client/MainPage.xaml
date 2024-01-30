@@ -7,14 +7,14 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
         <ToolbarItem    Text="Ingredient List" Clicked="OnIngredientListClicked"/>
-        <ToolbarItem Text="Add new protocol" Clicked="OnAddProtocolAdded" />
+        <ToolbarItem Text="Protocol List" Clicked="OnProtocolClicked" />
     </ContentPage.ToolbarItems>
     <ScrollView VerticalOptions="FillAndExpand">
         
     <StackLayout>
         <CollectionView x:Name="collectionView"                      
                         ItemsLayout="VerticalList" 
-                        SelectionChanged="SelectionChanged"
+                        SelectionChanged="OnSelectionChanged"
                         SelectionMode="Single"
                         Margin="15">
 

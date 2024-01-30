@@ -30,7 +30,7 @@ class ProtocolRestServices : IProtocolRestService
 		{
 			string jsonPlants = JsonSerializer.Serialize<Protocol>(protocol, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/protoccol/", content);
+			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Protoccols/", content);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -55,7 +55,7 @@ class ProtocolRestServices : IProtocolRestService
 
 		try
 		{
-			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Protocol");
+			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Protocols");
 			if (response.IsSuccessStatusCode)
 			{
 				string content = await response.Content.ReadAsStringAsync();
@@ -77,7 +77,7 @@ class ProtocolRestServices : IProtocolRestService
 	{
 		try
 		{
-			HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/protocol/{id}");
+			HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/Protocols/{id}");
 			if (response.IsSuccessStatusCode)
 			{
 				Debug.Write("Successfully created plant");
@@ -99,7 +99,7 @@ class ProtocolRestServices : IProtocolRestService
 		{
 			string jsonProtocol = JsonSerializer.Serialize<Protocol>(protocol, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonProtocol, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Plant/{protocol.Id}", content);
+			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Protocols/{protocol.Id}", content);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -123,7 +123,7 @@ class ProtocolRestServices : IProtocolRestService
 
 		try
 		{
-			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Protocol/ForPlant{id}");
+			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Protocols/ForPlant{id}");
 			if (response.IsSuccessStatusCode)
 			{
 				string content = await response.Content.ReadAsStringAsync();
