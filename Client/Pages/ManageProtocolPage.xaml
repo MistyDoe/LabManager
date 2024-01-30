@@ -4,6 +4,40 @@
              x:Class="Client.Pages.ManageProtocolPage"
              Title="Add new protocol">
     <VerticalStackLayout>
-        <Label Text="In Protocol edit"/>
+        <VerticalStackLayout>
+            <Label Text="Description"/>
+            <Entry Text="{Binding Protocol.Description}" 
+                   Placeholder="Name"/>
+            <Label Text="Resource"/>
+            <Entry Text="{Binding Protocol.Resource}"
+                   Keyboard="Url"
+                   Placeholder="Resource link"/>
+            <Label Text="Plant part"/>
+            <Entry Placeholder="Plant Part"
+                   Text="{Binding Protocol.PlantPart}"/>
+            
+            <Picker x:Name="plantPicker" 
+                    Title="Selet Genus"
+                    ItemsSource="{Binding plants}"
+                    SelectedIndexChanged="OnPlantPickerChanged"
+                    >
+            </Picker>
+            <Label Text="Media"/>
+            <Picker Grid.Column="1" Grid.Row="1" 
+                    x:Name="picker"                    
+                    SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Stage 1</x:String>
+                        <x:String>Stage 2</x:String>
+                        <x:String>Sage 3 </x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
+            <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
+            <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>
+
+        </VerticalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

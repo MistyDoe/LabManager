@@ -76,6 +76,12 @@ namespace API.Controllers
 				return Problem("Entity set 'LabManagerDBContext.Protocols'  is null.");
 			}
 			var updatedProtocol = _mapper.Map<Protocol>(protocolDTO);
+			int id = new Random().Next();
+			if ((_context.Plants.First(p => p.Id == id) != null))
+			{
+				id = new Random().Next();
+			}
+			updatedProtocol.Id = id;
 			_context.Update(updatedProtocol);
 			await _context.SaveChangesAsync();
 			return Ok();

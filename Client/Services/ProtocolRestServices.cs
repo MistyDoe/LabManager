@@ -1,4 +1,5 @@
-﻿using Client.Models;
+﻿using Client.DTOs;
+using Client.Models;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -24,13 +25,13 @@ class ProtocolRestServices : IProtocolRestService
 
 	}
 
-	public async Task AddProtocolAsync(Protocol protocol)
+	public async Task AddProtocolAsync(ProtocolDTO protocolDTO)
 	{
 		try
 		{
-			string jsonPlants = JsonSerializer.Serialize<Protocol>(protocol, _jsonSerializerOptions);
+			string jsonPlants = JsonSerializer.Serialize<ProtocolDTO>(protocolDTO, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Protoccols/", content);
+			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Protocols/", content);
 
 			if (response.IsSuccessStatusCode)
 			{
