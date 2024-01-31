@@ -24,10 +24,12 @@ namespace API.Controllers
 		[HttpGet]
 		public async Task<ActionResult<IEnumerable<Protocol>>> GetProtocols()
 		{
-			var protocols = await _context.Protocols.Include(p => p.Plant)
-		  .ToListAsync();
+			var protocols = await _context.Protocols
+				.Include(p => p.Plant)
+				.ToListAsync();
 			return Ok(protocols);
 		}
+
 		[HttpGet("/ForPlant{id}")]
 		public async Task<ActionResult<IEnumerable<Protocol>>> GetProtocolsForPlant(int id)
 		{
@@ -45,7 +47,8 @@ namespace API.Controllers
 			{
 				return NotFound();
 			}
-			var protocol = await _context.Protocols.FirstOrDefaultAsync(pr => pr.Id == id);
+			var protocol = await _context.Protocols
+				.FirstOrDefaultAsync(pr => pr.Id == id);
 
 			if (protocol == null)
 			{
@@ -77,12 +80,13 @@ namespace API.Controllers
 			}
 			var updatedProtocol = _mapper.Map<Protocol>(protocolDTO);
 			int id = new Random().Next();
-			if ((_context.Plants.First(p => p.Id == id) != null))
+			Protocol selectedId = await _context.Protocols.FirstOrDefaultAsync(p => p.Id == id);
+			if (selectedId != null)
 			{
 				id = new Random().Next();
 			}
 			updatedProtocol.Id = id;
-			_context.Update(updatedProtocol);
+			_context.Add(updatedProtocol);
 			await _context.SaveChangesAsync();
 			return Ok();
 
