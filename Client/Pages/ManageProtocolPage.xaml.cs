@@ -13,8 +13,8 @@ public partial class ManageProtocolPage : ContentPage
 	private IPlantRestDataServices _plantRestDataServices;
 	Protocol _protocol;
 	bool _isNew;
-	public List<string> plants { get; set; }
-
+	public List<Plant> plants { get; set; }
+	public List<string> plantNames { get; set; }
 	public Protocol Protocol
 	{
 		get => _protocol;
@@ -31,17 +31,19 @@ public partial class ManageProtocolPage : ContentPage
 		InitializeComponent();
 		_protocolService = protocolRestService;
 		_plantRestDataServices = plantRestDataServices;
-		var plantsList = new List<string>();
-		plantsList.Add("Alocasia");
-		plantsList.Add("Philodendron");
-		plants = plantsList;
 		this.BindingContext = this;
-
 	}
 
-	private async void PopulatePlants()
+	private async Task<List<string>> PopulatePlants()
 	{
-		throw new NotImplementedException();
+		List<Plant> plantsList = new List<Plant>();
+		List<string> plants = new List<string>();
+
+		foreach (var plant in plantsList)
+		{
+			plants.Add(plant.Name);
+		}
+		return plants;
 	}
 
 	protected async override void OnAppearing()
@@ -49,10 +51,16 @@ public partial class ManageProtocolPage : ContentPage
 		try
 		{
 			base.OnAppearing();
-			//plantPicker.SetBinding(Picker.ItemsSourceProperty, "Plants");
-			//plantPicker.BindingContext = plants;
-			//plantPicker.ItemDisplayBinding = new Binding("Name");
+			plants = await _plantRestDataServices.GetAllPlantsAsync();
+			plantPicker.SetBinding(Picker.ItemsSourceProperty, "plants");
+			plantPicker.ItemDisplayBinding = new Binding("Name");
+			plantNames = new List<string>();
 
+			//foreach (var plant in plants)
+			//{
+			//	plantNames.Add(plant.Name);
+
+			//}
 		}
 		catch (Exception ex)
 		{
