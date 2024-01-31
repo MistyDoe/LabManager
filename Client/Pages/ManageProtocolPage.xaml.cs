@@ -79,7 +79,13 @@ public partial class ManageProtocolPage : ContentPage
 	{
 		var picker = (Picker)sender;
 		int selectedIndex = picker.SelectedIndex;
-
+		if (selectedIndex != -1)
+		{
+			string plantName = picker.Items[selectedIndex];
+			Plant selectedPlant = plants
+				.FirstOrDefault(p => p.Name == plantName);
+			Protocol.PlantId = selectedPlant.Id;
+		}
 		Debug.WriteLine(selectedIndex);
 	}
 	void OnPickerSelectedIndexChanged(object sender, EventArgs e)
