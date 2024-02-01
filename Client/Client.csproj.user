@@ -8,19 +8,25 @@
     <DefaultDevice>pixel_3_-_api_33</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Pages\IngredientPage.xaml">
+    <MauiXaml Update="Pages\Ingredients\IngredientPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\ManageIngredientPage.xaml">
+    <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\ManagePlantPage.xaml">
+    <MauiXaml Update="Pages\Media\ManageMediaPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\ManageProtocolPage.xaml">
+    <MauiXaml Update="Pages\Media\MediaPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\ProtocolPage.xaml">
+    <MauiXaml Update="Pages\Plant\ManagePlantPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\Protocol\ManageProtocolPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\Protocol\ProtocolPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

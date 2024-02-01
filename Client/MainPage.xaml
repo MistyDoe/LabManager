@@ -5,9 +5,10 @@
              Title="Lab Manager">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem    Text="Add new genus" Clicked="OnAddPlantClicked"/>
-        <ToolbarItem    Text="Ingredient List" Clicked="OnIngredientListClicked"/>
-        <ToolbarItem Text="Protocol List" Clicked="OnProtocolClicked" />
+        <ToolbarItem    Text="Add new species" Clicked="OnAddPlantClicked"/>
+        <ToolbarItem    Text="Ingredients" Clicked="OnIngredientListClicked"/>
+        <ToolbarItem Text="Protocols" Clicked="OnProtocolClicked" />
+        <ToolbarItem Text="Medias" Clicked="OnMediaPageClicked"/>
     </ContentPage.ToolbarItems>
     <ScrollView VerticalOptions="FillAndExpand">
         

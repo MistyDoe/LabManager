@@ -65,19 +65,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\IngredientPage.xaml">
+	  <Compile Update="Pages\Media\MAnageMediaPage.xaml.cs">
+	    <DependentUpon>ManageMediaPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\Ingredients\IngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ManageIngredientPage.xaml">
+	  <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ManagePlantPage.xaml">
+	  <MauiXaml Update="Pages\Media\ManageMediaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ManageProtocolPage.xaml">
+	  <MauiXaml Update="Pages\Media\MediaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ProtocolPage.xaml">
+	  <MauiXaml Update="Pages\Plant\ManagePlantPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Protocol\ManageProtocolPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\Protocol\ProtocolPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

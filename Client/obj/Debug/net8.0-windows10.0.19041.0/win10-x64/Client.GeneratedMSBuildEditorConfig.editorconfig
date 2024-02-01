@@ -30,35 +30,47 @@ build_metadata.AdditionalFiles.ManifestResourceName = Client.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/IngredientPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Ingredients/IngredientPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.IngredientPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\IngredientPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\IngredientPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Ingredients.IngredientPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Ingredients\IngredientPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Ingredients\IngredientPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/ManageIngredientPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Ingredients/ManageIngredientPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.ManageIngredientPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\ManageIngredientPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\ManageIngredientPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Ingredients.ManageIngredientPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Ingredients\ManageIngredientPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Ingredients\ManageIngredientPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/ManagePlantPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Media/ManageMediaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.ManagePlantPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\ManagePlantPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\ManagePlantPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Media.ManageMediaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Media\ManageMediaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Media\ManageMediaPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/ManageProtocolPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Media/MediaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.ManageProtocolPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\ManageProtocolPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\ManageProtocolPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Media.MediaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Media\MediaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Media\MediaPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/ProtocolPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Plant/ManagePlantPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.ProtocolPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\ProtocolPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\ProtocolPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Plant.ManagePlantPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Plant\ManagePlantPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Plant\ManagePlantPage.xaml
+
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Protocol/ManageProtocolPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Protocol.ManageProtocolPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Protocol\ManageProtocolPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Protocol\ManageProtocolPage.xaml
+
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Protocol/ProtocolPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Protocol.ProtocolPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Protocol\ProtocolPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Protocol\ProtocolPage.xaml
 
 [C:/Users/migli/source/repos/LabManager/Client/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

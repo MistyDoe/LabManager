@@ -53,6 +53,11 @@ public partial class MainPage : ContentPage
 		Debug.WriteLine("Protocol clicked list clicked");
 		await Shell.Current.GoToAsync(nameof(ProtocolPage));
 	}
+	async void OnMediaPageClicked(object sender, EventArgs e)
+	{
+		Debug.WriteLine("Protocol clicked list clicked");
+		await Shell.Current.GoToAsync(nameof(MediaPage));
+	}
 
 	private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
