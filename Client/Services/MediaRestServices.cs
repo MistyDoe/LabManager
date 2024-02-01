@@ -47,7 +47,7 @@ namespace Client.Services
 			return;
 		}
 
-		public async Task DeleteMediaAsync(int id)
+		public async Task RemoveMediaAsync(int id)
 		{
 			try
 			{

@@ -42,17 +42,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Ingredients.M
 build_metadata.AdditionalFiles.TargetPath = Pages\Ingredients\ManageIngredientPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\Ingredients\ManageIngredientPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/Media/ManageMediaPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Medias/MediaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Media.ManageMediaPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\Media\ManageMediaPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\Media\ManageMediaPage.xaml
-
-[C:/Users/migli/source/repos/LabManager/Client/Pages/Media/MediaPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Media.MediaPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\Media\MediaPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\Media\MediaPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Medias.MediaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Medias\MediaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Medias\MediaPage.xaml
 
 [C:/Users/migli/source/repos/LabManager/Client/Pages/Plant/ManagePlantPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

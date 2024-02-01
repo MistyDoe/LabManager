@@ -65,22 +65,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\Media\MAnageMediaPage.xaml.cs">
-	    <DependentUpon>ManageMediaPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiXaml Update="Pages\Ingredients\IngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\Media\ManageMediaPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\Media\MediaPage.xaml">
+	  <MauiXaml Update="Pages\Medias\MediaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Plant\ManagePlantPage.xaml">

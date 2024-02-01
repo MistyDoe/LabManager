@@ -14,10 +14,7 @@
     <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Pages\Media\ManageMediaPage.xaml">
-      <SubType>Designer</SubType>
-    </MauiXaml>
-    <MauiXaml Update="Pages\Media\MediaPage.xaml">
+    <MauiXaml Update="Pages\Medias\MediaPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\Plant\ManagePlantPage.xaml">

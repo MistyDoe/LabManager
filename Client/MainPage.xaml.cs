@@ -1,5 +1,6 @@
 ﻿using Client.Models;
 using Client.Pages;
+using Client.Pages.Medias;
 using Client.Services;
 using System.Diagnostics;
 
@@ -55,7 +56,7 @@ public partial class MainPage : ContentPage
 	}
 	async void OnMediaPageClicked(object sender, EventArgs e)
 	{
-		Debug.WriteLine("Protocol clicked list clicked");
+		Debug.WriteLine("Media clicked list clicked");
 		await Shell.Current.GoToAsync(nameof(MediaPage));
 	}
 
