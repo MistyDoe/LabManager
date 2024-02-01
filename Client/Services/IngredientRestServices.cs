@@ -33,11 +33,12 @@ internal class IngredientRestServices : IIngredientRestServices
 
 		try
 		{
-			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/LabManager/ingredient");
+			HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/Ingredients");
 			if (response.IsSuccessStatusCode)
 			{
 				string content = await response.Content.ReadAsStringAsync();
 				ingredients = JsonSerializer.Deserialize<List<Ingredient>>(content, _jsonSerializerOptions);
+
 			}
 			else
 			{
@@ -56,7 +57,7 @@ internal class IngredientRestServices : IIngredientRestServices
 		{
 			string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/ingredient/", content);
+			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients/", content);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -79,7 +80,7 @@ internal class IngredientRestServices : IIngredientRestServices
 		{
 			string jsonIngredients = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonIngredients, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/LabManager/ingredient/{ingredient.Name}", content);
+			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Ingredients/{ingredient.Name}", content);
 
 			if (response.IsSuccessStatusCode)
 			{
@@ -102,7 +103,7 @@ internal class IngredientRestServices : IIngredientRestServices
 	{
 		try
 		{
-			HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/ingredient/{id}");
+			HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/Ingredients/{id}");
 			if (response.IsSuccessStatusCode)
 			{
 				Debug.Write("Successfully created plant");

@@ -30,7 +30,7 @@ namespace API.Controllers
 			return Ok(protocols);
 		}
 
-		[HttpGet("/ForPlant{id}")]
+		[HttpGet("ForPlant{id}")]
 		public async Task<ActionResult<IEnumerable<Protocol>>> GetProtocolsForPlant(int id)
 		{
 			var protocols = await _context.Protocols
