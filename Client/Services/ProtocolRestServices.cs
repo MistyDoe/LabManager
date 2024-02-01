@@ -29,8 +29,8 @@ class ProtocolRestServices : IProtocolRestService
 	{
 		try
 		{
-			string jsonPlants = JsonSerializer.Serialize<ProtocolDTO>(protocolDTO, _jsonSerializerOptions);
-			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
+			string jsonProtocol = JsonSerializer.Serialize<ProtocolDTO>(protocolDTO, _jsonSerializerOptions);
+			StringContent content = new StringContent(jsonProtocol, Encoding.UTF8, "application/Json");
 			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Protocols/", content);
 
 			if (response.IsSuccessStatusCode)

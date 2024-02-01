@@ -2,12 +2,11 @@
 
 namespace Client.Services;
 
-public interface IMediaRestDataService
+public interface IMediaRestService
 {
 	Task<List<Media>> GetAllMediaAsync();
 	Task AddMediaAsync(Media media);
 	Task RemoveMediaAsync(int id);
-	Task UpdateMediaAsync(Protocol protocol);
-	Task DeleteMediaAsync(int id);
+	Task UpdateMediaAsync(Media media);
 }
 
