@@ -6,7 +6,7 @@ namespace API.Models
 	{
 		public int Id { get; set; }
 		public string Stage { get; set; }
-		public List<Ingredient>? Ingredients { get; } = new();
+		public List<Ingredient>? Ingredients { get; set; }
 		[JsonIgnore]
 		public Protocol? Protocol { get; set; }
 		public float PH { get; set; }

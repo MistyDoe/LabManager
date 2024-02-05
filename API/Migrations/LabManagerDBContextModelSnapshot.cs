@@ -178,12 +178,12 @@ namespace API.Migrations
                     b.Property<int>("IngredientsId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ListOfMediasId")
+                    b.Property<int>("MediaId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("IngredientsId", "ListOfMediasId");
+                    b.HasKey("IngredientsId", "MediaId");
 
-                    b.HasIndex("ListOfMediasId");
+                    b.HasIndex("MediaId");
 
                     b.ToTable("IngredientMedia");
                 });
@@ -247,7 +247,7 @@ namespace API.Migrations
 
                     b.HasOne("API.Models.Media", null)
                         .WithMany()
-                        .HasForeignKey("ListOfMediasId")
+                        .HasForeignKey("MediaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -1,4 +1,6 @@
-﻿namespace API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace API.Models
 {
 	public class Ingredient
 	{
@@ -7,6 +9,8 @@
 		public string Type { get; set; }
 		public string MeasurementType { get; set; }
 		public float Quantity { get; set; }
-		public List<Media>? ListOfMedias { get; } = new();
+		[JsonIgnore]
+		public List<Media>? Media { get; } = [];
+
 	}
 }

@@ -30,7 +30,7 @@ namespace API.Data
 				.OnDelete(DeleteBehavior.Cascade);
 
 			modelBuilder.Entity<Ingredient>()
-				.HasMany(i => i.ListOfMedias)
+				.HasMany(i => i.Media)
 				.WithMany(m => m.Ingredients);
 
 			modelBuilder.Entity<PlantInTS>()

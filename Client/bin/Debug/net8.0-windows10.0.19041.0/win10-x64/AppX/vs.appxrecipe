@@ -29,7 +29,7 @@
     <AppXManifest Include="C:\Users\migli\source\repos\LabManager\Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-02-05T11:32:34.161</Modified>
+      <Modified>2024-02-05T11:58:36.011</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\Client\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Client.dll">
       <PackagePath>Client.dll</PackagePath>
-      <Modified>2024-02-05T11:32:33.639</Modified>
+      <Modified>2024-02-05T11:56:59.150</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\Client\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Client.exe</PackagePath>
-      <Modified>2024-02-05T11:32:33.646</Modified>
+      <Modified>2024-02-05T11:56:59.253</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\migli\source\repos\LabManager\Client\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

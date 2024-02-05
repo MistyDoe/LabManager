@@ -29,7 +29,6 @@ namespace API.Controllers
 				return NotFound();
 			}
 			return await _context.Media
-				.Include(p => p.Protocol)
 				.ToListAsync();
 		}
 
