@@ -15,7 +15,7 @@ namespace API.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
 
             modelBuilder.Entity("API.Models.Ingredient", b =>
                 {
@@ -31,8 +31,8 @@ namespace API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Quantity")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Type")
                         .IsRequired()

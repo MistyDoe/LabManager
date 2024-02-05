@@ -7,17 +7,31 @@ namespace Client.Pages;
 public partial class ManageIngredientPage : ContentPage
 {
 	private IIngredientRestServices _service;
-	Ingredient _ingredient;
+	Ingredient ingredient;
 	bool _isNew;
 	public Ingredient Ingredient
 	{
-		get => _ingredient;
+		get => ingredient;
 		set
 		{
 			_isNew = IsNew(value);
-			_ingredient = value;
+			ingredient = value;
 			OnPropertyChanged();
 		}
+	}
+
+	protected async override void OnAppearing()
+	{
+		try
+		{
+			base.OnAppearing();
+			picker.SelectedIndex = picker.Items.IndexOf(ingredient.MeasurementType);
+		}
+		catch (Exception ex)
+		{
+			Debug.WriteLine(ex.Message);
+		}
+
 	}
 	public ManageIngredientPage(IIngredientRestServices service)
 	{
@@ -25,6 +39,10 @@ public partial class ManageIngredientPage : ContentPage
 
 		_service = service;
 		BindingContext = this;
+		if (_isNew = true)
+		{
+			picker.SelectedIndex = -1;
+		}
 	}
 
 	bool IsNew(Ingredient ingredient)
@@ -68,5 +86,6 @@ public partial class ManageIngredientPage : ContentPage
 		{
 			Ingredient.MeasurementType = picker.Items[selectedIndex];
 		}
+
 	}
 }

@@ -1,4 +1,5 @@
-﻿using Client.Models;
+﻿using Client.DTOs;
+using Client.Models;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -53,9 +54,14 @@ internal class IngredientRestServices : IIngredientRestServices
 	}
 	public async Task AddIngedientAsync(Ingredient ingredient)
 	{
+		var ingredientToAdd = new IngredientsDTO();
+		ingredientToAdd.Name = ingredient.Name;
+		ingredientToAdd.Type = ingredient.Type;
+		ingredientToAdd.MeasurementType = ingredient.MeasurementType;
+		ingredientToAdd.Quantity = ingredient.Quantity;
 		try
 		{
-			string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
+			string jsonPlants = JsonSerializer.Serialize<IngredientsDTO>(ingredientToAdd, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
 			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients/", content);
 
@@ -76,11 +82,13 @@ internal class IngredientRestServices : IIngredientRestServices
 	}
 	public async Task UpdateIngedientAsync(Ingredient ingredient)
 	{
+
+
 		try
 		{
 			string jsonIngredients = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonIngredients, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Ingredients/{ingredient.Name}", content);
+			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Ingredients/{ingredient.Id}", content);
 
 			if (response.IsSuccessStatusCode)
 			{

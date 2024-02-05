@@ -56,8 +56,8 @@ namespace Client.Models
 			}
 		}
 
-		int _quantity;
-		public int Quantity
+		float _quantity;
+		public float Quantity
 		{
 			get => _quantity;
 			set

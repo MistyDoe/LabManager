@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.DTOs;
 using API.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -31,14 +32,14 @@ namespace API.Controllers
 		}
 
 		// GET: api/Ingredients/5
-		[HttpGet("{name}")]
-		public async Task<ActionResult<Ingredient>> GetIngredient(string name)
+		[HttpGet("{id}")]
+		public async Task<ActionResult<Ingredient>> GetIngredient(int id)
 		{
 			if (_context.Ingredients == null)
 			{
 				return NotFound();
 			}
-			var ingredient = await _context.Ingredients.FirstOrDefaultAsync(pl => pl.Name == name);
+			var ingredient = await _context.Ingredients.FirstOrDefaultAsync(pl => pl.Id == id);
 
 			if (ingredient == null)
 			{
@@ -53,20 +54,11 @@ namespace API.Controllers
 		[HttpPut("{id}")]
 		public async Task<IActionResult> PutIngredient(int id, Ingredient ingredient)
 		{
-			var ingredientModel = await _context.Ingredients.FirstOrDefaultAsync(pr => pr.Name == ingredient.Name);
-			if (ingredientModel == null)
+			if (id != ingredient.Id)
 			{
-				return NotFound();
+				return BadRequest();
 			}
-			ingredientModel.Quantity = ingredient.Quantity;
-			if (ingredient.ListOfMedias != null)
-			{
-				foreach (var media in ingredient.ListOfMedias)
-				{
-					_context.Add(media);
-				}
-				_context.SaveChanges();
-			}
+			_context.Entry(ingredient).State = EntityState.Modified;
 
 			await _context.SaveChangesAsync();
 
@@ -77,12 +69,21 @@ namespace API.Controllers
 		// POST: api/Ingredients
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 		[HttpPost]
-		public async Task<ActionResult<Ingredient>> PostIngredient(Ingredient ingredient)
+		public async Task<ActionResult<Ingredient>> PostIngredient(IngredientDTO ingredientDTO)
 		{
+			var ingredient = _mapper.Map<Ingredient>(ingredientDTO);
 			if (_context.Ingredients == null)
 			{
 				return Problem("Entity set 'LabManagerDBContext.Ingredients'  is null.");
 			}
+			int id = new Random().Next();
+			Ingredient selectedId = await _context.Ingredients.FirstOrDefaultAsync(p => p.Id == id);
+			if (selectedId != null)
+			{
+				id = new Random().Next();
+			}
+			ingredient.Id = id;
+
 			await _context.Ingredients.AddAsync(ingredient);
 
 			await _context.SaveChangesAsync();
