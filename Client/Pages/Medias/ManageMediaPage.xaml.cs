@@ -54,6 +54,7 @@ public partial class ManageMediaPage : ContentPage
 	}
 	void OnIngredientPickerChanged(object sender, EventArgs e)
 	{
+		Media.Ingredients = new List<Ingredient>();
 		var picker = (Picker)sender;
 		int selectedIndex = picker.SelectedIndex;
 		if (selectedIndex != -1)
