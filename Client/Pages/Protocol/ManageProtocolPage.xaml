@@ -17,7 +17,7 @@
                    Text="{Binding Protocol.PlantPart}"/>
             
             <Picker x:Name="plantPicker" 
-                    Title="Selet Genus"                                       
+                    Title="Select Genus"                                       
                     SelectedIndexChanged="OnPlantPickerChanged"
                     >
             </Picker>

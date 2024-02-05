@@ -4,9 +4,24 @@
              x:Class="Client.Pages.ManageMediaPage"
              Title="ManageMediaPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Stage"/>
+        <Picker x:Name="stagePicker" 
+                SelectedIndexChanged="OnSagePickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>1 Innoculation</x:String>
+                    <x:String>2 Shoot Induction</x:String>
+                    <x:String>3 Rood Induction</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+            </Picker>
+        <Picker x:Name="ingredientPicker" 
+                Title="Select ingredient"                                       
+                SelectedIndexChanged="OnIngredientPickerChanged">
+        </Picker>
+
+        <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
+        <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
+        <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>
     </VerticalStackLayout>
 </ContentPage>
