@@ -1,7 +1,7 @@
 ﻿using Client.Pages;
-using Client.Pages.Medias;
 using Client.Services;
 using Microsoft.Extensions.Logging;
+
 
 
 namespace Client
@@ -33,6 +33,7 @@ namespace Client
 			builder.Services.AddSingleton<ManageIngredientPage>();
 
 			builder.Services.AddSingleton<IMediaRestService, MediaRestServices>();
+			builder.Services.AddSingleton<ManageMediaPage>();
 			builder.Services.AddSingleton<MediaPage>();
 
 #if DEBUG

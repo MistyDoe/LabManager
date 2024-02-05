@@ -23,50 +23,6 @@ namespace Client.Services
 			};
 
 		}
-		public async Task AddMediaAsync(Media media)
-		{
-			try
-			{
-				string jsonMedia = JsonSerializer.Serialize<Media>(media, _jsonSerializerOptions);
-				StringContent content = new StringContent(jsonMedia, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Media/", content);
-
-				if (response.IsSuccessStatusCode)
-				{
-					Debug.Write("Successfully created plant");
-				}
-				else
-				{
-					Debug.WriteLine("Non Http 2xx response");
-				}
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-			}
-			return;
-		}
-
-		public async Task RemoveMediaAsync(int id)
-		{
-			try
-			{
-				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/Madia/{id}");
-				if (response.IsSuccessStatusCode)
-				{
-					Debug.Write("Successfully created plant");
-				}
-				else
-				{
-					Debug.WriteLine("Non Http 2xx response");
-				}
-			}
-			catch (Exception ex)
-			{
-				Debug.WriteLine(ex.Message);
-			}
-		}
-
 		public async Task<List<Media>> GetAllMediaAsync()
 		{
 			List<Media> media = new List<Media>();
@@ -91,6 +47,30 @@ namespace Client.Services
 			return media;
 		}
 
+		public async Task AddMediaAsync(Media media)
+		{
+			try
+			{
+				string jsonMedia = JsonSerializer.Serialize<Media>(media, _jsonSerializerOptions);
+				StringContent content = new StringContent(jsonMedia, Encoding.UTF8, "application/Json");
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Media/", content);
+
+				if (response.IsSuccessStatusCode)
+				{
+					Debug.Write("Successfully created plant");
+				}
+				else
+				{
+					Debug.WriteLine("Non Http 2xx response");
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+			return;
+		}
+
 		public async Task UpdateMediaAsync(Media media)
 		{
 			try
@@ -108,6 +88,26 @@ namespace Client.Services
 					Debug.WriteLine("Non Http 2xx response");
 				}
 
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex.Message);
+			}
+		}
+
+		public async Task RemoveMediaAsync(int id)
+		{
+			try
+			{
+				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/Madia/{id}");
+				if (response.IsSuccessStatusCode)
+				{
+					Debug.Write("Successfully created plant");
+				}
+				else
+				{
+					Debug.WriteLine("Non Http 2xx response");
+				}
 			}
 			catch (Exception ex)
 			{

@@ -71,6 +71,9 @@
 	  <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\Medias\ManageMediaPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Medias\MediaPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

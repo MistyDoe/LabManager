@@ -46,6 +46,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Ingredients.M
 build_metadata.AdditionalFiles.TargetPath = Pages\Ingredients\ManageIngredientPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages\Ingredients\ManageIngredientPage.xaml
 
+[C:/Users/migli/source/repos/LabManager/Client/Pages/Medias/ManageMediaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Medias.ManageMediaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\Medias\ManageMediaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\Medias\ManageMediaPage.xaml
+
 [C:/Users/migli/source/repos/LabManager/Client/Pages/Medias/MediaPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Medias.MediaPage.xaml

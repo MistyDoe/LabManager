@@ -1,6 +1,5 @@
 ﻿using Client.Models;
 using Client.Pages;
-using Client.Pages.Medias;
 using Client.Services;
 using System.Diagnostics;
 
