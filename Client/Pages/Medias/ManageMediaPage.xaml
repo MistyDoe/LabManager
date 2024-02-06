@@ -15,11 +15,45 @@
                 </x:Array>
             </Picker.ItemsSource>
             </Picker>
+        <Entry Placeholder="Ph" Text="{Binding Media.PH}"/>
+        <ListView Header="Ingredients:" ItemsSource="{Binding Ingredients}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding IngredientList}"/>
+                            <Label Text="{Binding IngredientList}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Picker x:Name="ingredientPicker" 
                 Title="Select ingredient"                                       
                 SelectedIndexChanged="OnIngredientPickerChanged">
         </Picker>
-
+        <Entry Placeholder ="Type"  TextChanged="OnTypeChanged" />
+        <Entry Placeholder="Qunatity" TextChanged="OnQunatityChanged"/>
+        <Picker x:Name="ingredientMeasurPicker"
+                Title="Measurement type"
+                SelectedIndexChanged="OnIngredientMeasurPickerChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String >mg</x:String>
+                    <x:String>g</x:String>
+                    <x:String>kg</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Button Text="Add Ingreditent" Clicked="OnAddIngredientClicked"/>
         <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
         <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>

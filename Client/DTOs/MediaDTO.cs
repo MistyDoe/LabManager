@@ -6,6 +6,7 @@ namespace Client.DTOs
 	{
 		public string Stage { get; set; }
 		public List<Ingredient> Ingredients { get; set; }
+		public float PH { get; set; }
 
 	}
 }

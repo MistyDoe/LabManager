@@ -69,17 +69,17 @@ namespace Client.Models
 			}
 		}
 
-		List<Media>? _listOfMedias;
+		List<Media>? _medias;
 
-		public List<Media>? ListOfMedias
+		public List<Media>? Medias
 		{
-			get => _listOfMedias;
+			get => _medias;
 			set
 			{
-				if (_listOfMedias == value)
+				if (_medias == value)
 					return;
-				_listOfMedias = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ListOfMedias)));
+				_medias = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Medias)));
 			}
 		}
 

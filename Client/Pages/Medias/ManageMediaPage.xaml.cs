@@ -9,6 +9,8 @@ public partial class ManageMediaPage : ContentPage
 	private IMediaRestService _service;
 	private IIngredientRestServices _ingredientRestService;
 	Media media;
+	Ingredient selectedIngredient { get; } = new Ingredient();
+	public List<Ingredient> IngredientList { get; } = new List<Ingredient>();
 	public List<Ingredient> ingredients { get; set; }
 	bool _isNew;
 	public Media Media
@@ -52,19 +54,6 @@ public partial class ManageMediaPage : ContentPage
 			return true;
 		return false;
 	}
-	void OnIngredientPickerChanged(object sender, EventArgs e)
-	{
-		Media.Ingredients = new List<Ingredient>();
-		var picker = (Picker)sender;
-		int selectedIndex = picker.SelectedIndex;
-		if (selectedIndex != -1)
-		{
-			string ingredientName = picker.Items[selectedIndex];
-			Ingredient selectedingredient = ingredients
-				.FirstOrDefault(p => p.Name == ingredientName);
-			Media.Ingredients.Add(selectedingredient);
-		}
-	}
 	void OnSagePickerSelectedIndexChanged(object sender, EventArgs e)
 	{
 		var picker = (Picker)sender;
@@ -75,9 +64,57 @@ public partial class ManageMediaPage : ContentPage
 			Media.Stage = stage;
 		}
 	}
+	void OnIngredientPickerChanged(object sender, EventArgs e)
+	{
 
+		var picker = (Picker)sender;
+		int selectedIndex = picker.SelectedIndex;
+		if (selectedIndex != -1)
+		{
+			string ingredientName = picker.Items[selectedIndex];
+			selectedIngredient.Name = ingredientName;
+		}
+	}
+
+	void OnTypeChanged(object sender, EventArgs e)
+	{
+		selectedIngredient.Type = ((Entry)sender).Text;
+	}
+	void OnQunatityChanged(object sender, EventArgs e)
+	{
+		selectedIngredient.Quantity = float.Parse(((Entry)sender).Text);
+	}
+	void OnIngredientMeasurPickerChanged(object sender, EventArgs e)
+	{
+		var picker = (Picker)sender;
+		int selectedIndex = picker.SelectedIndex;
+		if (selectedIndex != -1)
+		{
+			selectedIngredient.MeasurementType = picker.Items[selectedIndex];
+		}
+	}
+	async void OnAddIngredientClicked(Object sender, EventArgs e)
+	{
+		Ingredient NewIngredientCheck = ingredients.Where(x => x.Name == selectedIngredient.Name &&
+														 x.MeasurementType == selectedIngredient.MeasurementType &&
+														 x.Type == selectedIngredient.Type &&
+														 x.Quantity == selectedIngredient.Quantity)
+														 .FirstOrDefault();
+		if (NewIngredientCheck != null)
+		{
+			selectedIngredient.Id = GenerateIdForIngredient();
+			IngredientList.Add(selectedIngredient);
+		}
+		else
+		{
+			await _ingredientRestService.AddIngedientAsync(selectedIngredient);
+			selectedIngredient.Id = GenerateIdForIngredient();
+			IngredientList.Add(selectedIngredient);
+		}
+	}
 	async void OnSaveButtonClicked(Object sender, EventArgs e)
 	{
+		Media.Ingredients = IngredientList;
 		if (_isNew)
 		{
 			Debug.WriteLine("Add new item");
@@ -101,4 +138,17 @@ public partial class ManageMediaPage : ContentPage
 		await Shell.Current.GoToAsync("..");
 	}
 
+	int GenerateIdForIngredient()
+	{
+		id = new Random().Next().Next();
+		List<Ingredient> selectedId = ingredients.Where(p => p.Id == id)
+												 .ToList();
+		List<Ingredient> selectedId2 = IngredientList.Where(p => p.Id == id)
+													 .ToList();
+		if (selectedId != null || selectedId2 != null)
+		{
+			id = new Random().Next();
+		}
+		return id;
+	}
 }

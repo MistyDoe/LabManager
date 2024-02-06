@@ -55,18 +55,11 @@ public partial class ManageProtocolPage : ContentPage
 			plantPicker.SetBinding(Picker.ItemsSourceProperty, "plants");
 			plantPicker.ItemDisplayBinding = new Binding("Name");
 			plantNames = new List<string>();
-
-			//foreach (var plant in plants)
-			//{
-			//	plantNames.Add(plant.Name);
-
-			//}
 		}
 		catch (Exception ex)
 		{
 			Debug.WriteLine(ex.Message);
 		}
-
 	}
 	bool IsNew(Protocol protocol)
 	{

@@ -43,7 +43,6 @@ namespace Client.Models
 			}
 		}
 
-
 		float _ph;
 		public float PH
 		{
@@ -57,9 +56,8 @@ namespace Client.Models
 			}
 		}
 
-
-		public int _protocolId;
-		public int ProtocolId
+		public int? _protocolId;
+		public int? ProtocolId
 		{
 			get => _protocolId;
 			set
@@ -70,9 +68,6 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProtocolId)));
 			}
 		}
-
-
-
 
 		public event PropertyChangedEventHandler PropertyChanged;
 	}
