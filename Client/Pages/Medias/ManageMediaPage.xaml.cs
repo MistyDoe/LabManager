@@ -120,7 +120,7 @@ public partial class ManageMediaPage : ContentPage
 		Media.IngredientID = IngredientIdList;
 		if (_isNew)
 		{
-			Debug.WriteLine("Add new item");
+			Debug.WriteLine("Add item");
 			await _service.AddMediaAsync(Media);
 		}
 		else
