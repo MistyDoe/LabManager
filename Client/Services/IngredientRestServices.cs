@@ -27,9 +27,9 @@ internal class IngredientRestServices : IIngredientRestServices
 
 	}
 
-	public async Task<List<IngredientDTO>> GetAllIngredientsAsync()
+	public async Task<List<Ingredient>> GetAllIngredientsAsync()
 	{
-		List<IngredientDTO> ingredients = new List<IngredientDTO>();
+		List<Ingredient> ingredients = new List<Ingredient>();
 
 		try
 		{
@@ -37,7 +37,7 @@ internal class IngredientRestServices : IIngredientRestServices
 			if (response.IsSuccessStatusCode)
 			{
 				string content = await response.Content.ReadAsStringAsync();
-				ingredients = JsonSerializer.Deserialize<List<IngredientDTO>>(content, _jsonSerializerOptions);
+				ingredients = JsonSerializer.Deserialize<List<Ingredient>>(content, _jsonSerializerOptions);
 
 			}
 			else
@@ -51,16 +51,18 @@ internal class IngredientRestServices : IIngredientRestServices
 		}
 		return ingredients;
 	}
-	public async Task AddIngedientAsync(IngredientDTO ingredient)
+	public async Task<string> AddIngedientAsync(Ingredient ingredient)
 	{
+		string json = "";
 		try
 		{
-			string jsonPlants = JsonSerializer.Serialize<IngredientDTO>(ingredient, _jsonSerializerOptions);
+			string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
 			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients/", content);
 
 			if (response.IsSuccessStatusCode)
 			{
+				json = await response.Content.ReadAsStringAsync();
 				Debug.Write("Successfully created plant");
 			}
 			else
@@ -72,15 +74,15 @@ internal class IngredientRestServices : IIngredientRestServices
 		{
 			Debug.WriteLine(ex.Message);
 		}
-		return;
+		return json;
 	}
-	public async Task UpdateIngedientAsync(IngredientDTO ingredient)
+	public async Task UpdateIngedientAsync(Ingredient ingredient)
 	{
 
 
 		try
 		{
-			string jsonIngredients = JsonSerializer.Serialize<IngredientDTO>(ingredient, _jsonSerializerOptions);
+			string jsonIngredients = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonIngredients, Encoding.UTF8, "application/Json");
 			HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/Ingredients/{ingredient.Id}", content);
 

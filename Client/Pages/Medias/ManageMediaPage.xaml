@@ -16,7 +16,7 @@
             </Picker.ItemsSource>
             </Picker>
         <Entry Placeholder="Ph" Text="{Binding Media.PH}"/>
-        <ListView Header="Ingredients:" ItemsSource="{Binding Ingredients}">
+        <ListView Header="Ingredients:" ItemsSource="{Binding Media.IngredientID}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -53,7 +53,7 @@
                 </x:Array>
             </Picker.ItemsSource>
         </Picker>
-        <Button Text="Add Ingreditent" Clicked="OnAddIngredientClicked"/>
+        <Button Text="Add Ingredient" Clicked="OnAddIngredientClicked"/>
         <Button  Text="Save" Clicked="OnSaveButtonClicked"/>
         <Button Text="Delete" Clicked="OnDeleteButtonClicked"/>
         <Button  Text="Cancel" Clicked="OnCancelButtonClicked"/>

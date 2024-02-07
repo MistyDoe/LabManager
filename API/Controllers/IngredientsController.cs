@@ -88,9 +88,11 @@ namespace API.Controllers
 
 			await _context.SaveChangesAsync();
 
-			return Created($"api/LabManager/ingredient/{ingredient.Name}", ingredient);
+			return Ok(ingredient.Id);
 
 		}
+
+
 
 		// DELETE: api/Ingredients/5
 		[HttpDelete("{id}")]

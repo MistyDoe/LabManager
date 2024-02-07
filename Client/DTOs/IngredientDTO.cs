@@ -2,7 +2,7 @@
 
 namespace Client.DTOs
 {
-	public class IngredientsDTO
+	public class IngredientDTO
 	{
 		public string? Name { get; set; }
 		public string Type { get; set; }

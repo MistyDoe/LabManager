@@ -2,7 +2,7 @@
 
 namespace Client.Models
 {
-	public class IngredientDTO
+	public class Ingredient
 	{
 		public int _id;
 		public int Id
@@ -69,17 +69,17 @@ namespace Client.Models
 			}
 		}
 
-		List<Media>? _medias;
+		int? _mediaId;
 
-		public List<Media>? Medias
+		public int? MediaId
 		{
-			get => _medias;
+			get => _mediaId;
 			set
 			{
-				if (_medias == value)
+				if (_mediaId == value)
 					return;
-				_medias = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Medias)));
+				_mediaId = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MediaId)));
 			}
 		}
 

@@ -7,9 +7,9 @@ namespace Client.Pages;
 public partial class ManageIngredientPage : ContentPage
 {
 	private IIngredientRestServices _service;
-	IngredientDTO ingredient;
+	Ingredient ingredient;
 	bool _isNew;
-	public IngredientDTO Ingredient
+	public Ingredient Ingredient
 	{
 		get => ingredient;
 		set
@@ -45,7 +45,7 @@ public partial class ManageIngredientPage : ContentPage
 		}
 	}
 
-	bool IsNew(IngredientDTO ingredient)
+	bool IsNew(Ingredient ingredient)
 	{
 		if (ingredient.Id == 0)
 			return true;
