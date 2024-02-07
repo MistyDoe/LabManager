@@ -2,7 +2,7 @@
 
 namespace Client.Models
 {
-	public class Ingredient
+	public class IngredientDTO
 	{
 		public int _id;
 		public int Id

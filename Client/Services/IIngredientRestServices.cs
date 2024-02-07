@@ -4,8 +4,8 @@ namespace Client.Services;
 
 public interface IIngredientRestServices
 {
-	Task<List<Ingredient>> GetAllIngredientsAsync();
-	Task AddIngedientAsync(Ingredient ingredient);
-	Task UpdateIngedientAsync(Ingredient ingredient);
+	Task<List<IngredientDTO>> GetAllIngredientsAsync();
+	Task AddIngedientAsync(IngredientDTO ingredient);
+	Task UpdateIngedientAsync(IngredientDTO ingredient);
 	Task RemoveIngredientAsyc(int id);
 }

@@ -22,7 +22,7 @@ public partial class IngredientPage : ContentPage
 	{
 
 		var navigationParameter = new Dictionary<string, object> {
-			{nameof(Ingredient), e.CurrentSelection.FirstOrDefault() as Ingredient }
+			{nameof(IngredientDTO), e.CurrentSelection.FirstOrDefault() as IngredientDTO }
 		};
 
 		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);
@@ -33,7 +33,7 @@ public partial class IngredientPage : ContentPage
 		Debug.WriteLine("Add button clicked");
 
 		var navigationParameter = new Dictionary<string, object> {
-			{nameof(Ingredient), new Ingredient() }
+			{nameof(IngredientDTO), new IngredientDTO() }
 		};
 
 		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);

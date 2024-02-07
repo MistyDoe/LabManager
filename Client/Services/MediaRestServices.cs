@@ -1,5 +1,4 @@
-﻿using Client.DTOs;
-using Client.Models;
+﻿using Client.Models;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
@@ -50,13 +49,10 @@ namespace Client.Services
 
 		public async Task AddMediaAsync(Media media)
 		{
-			var mediaDTO = new MediaDTO();
-			mediaDTO.Stage = media.Stage;
-			mediaDTO.Ingredients = media.Ingredients;
-			mediaDTO.PH = media.PH;
+
 			try
 			{
-				string jsonMedia = JsonSerializer.Serialize<MediaDTO>(mediaDTO, _jsonSerializerOptions);
+				string jsonMedia = JsonSerializer.Serialize<Media>(media, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonMedia, Encoding.UTF8, "application/Json");
 				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Media/", content);
 

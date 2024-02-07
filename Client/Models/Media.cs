@@ -30,16 +30,16 @@ namespace Client.Models
 			}
 		}
 
-		List<Ingredient>? _ingredients;
-		public List<Ingredient> Ingredients
+		public int? _ingredientId;
+		public int? IngredientID
 		{
-			get => _ingredients;
+			get => _protocolId;
 			set
 			{
-				if (_ingredients == value)
+				if (_protocolId == value)
 					return;
-				_ingredients = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ingredient)));
+				_protocolId = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProtocolId)));
 			}
 		}
 

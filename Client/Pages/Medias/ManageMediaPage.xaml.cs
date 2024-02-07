@@ -9,9 +9,9 @@ public partial class ManageMediaPage : ContentPage
 	private IMediaRestService _service;
 	private IIngredientRestServices _ingredientRestService;
 	Media media;
-	Ingredient selectedIngredient { get; } = new Ingredient();
-	public List<Ingredient> IngredientList { get; } = new List<Ingredient>();
-	public List<Ingredient> ingredients { get; set; }
+	public IngredientDTO selectedIngredient { get; set; } = new IngredientDTO();
+	public List<IngredientDTO> IngredientList { get; } = new List<IngredientDTO>();
+	public List<IngredientDTO> ingredients { get; set; }
 	bool _isNew;
 	public Media Media
 	{
@@ -31,6 +31,7 @@ public partial class ManageMediaPage : ContentPage
 			ingredients = await _ingredientRestService.GetAllIngredientsAsync();
 			ingredientPicker.SetBinding(Picker.ItemsSourceProperty, "ingredients");
 			ingredientPicker.ItemDisplayBinding = new Binding("Name");
+
 		}
 		catch (Exception ex)
 		{
@@ -95,22 +96,21 @@ public partial class ManageMediaPage : ContentPage
 	}
 	async void OnAddIngredientClicked(Object sender, EventArgs e)
 	{
-		Ingredient NewIngredientCheck = ingredients.Where(x => x.Name == selectedIngredient.Name &&
+		IngredientDTO NewIngredientCheck = ingredients.Where(x => x.Name == selectedIngredient.Name &&
 														 x.MeasurementType == selectedIngredient.MeasurementType &&
 														 x.Type == selectedIngredient.Type &&
 														 x.Quantity == selectedIngredient.Quantity)
 														 .FirstOrDefault();
 		if (NewIngredientCheck != null)
 		{
-			selectedIngredient.Id = GenerateIdForIngredient();
 			IngredientList.Add(selectedIngredient);
 		}
 		else
 		{
 			await _ingredientRestService.AddIngedientAsync(selectedIngredient);
-			selectedIngredient.Id = GenerateIdForIngredient();
 			IngredientList.Add(selectedIngredient);
 		}
+		selectedIngredient = new IngredientDTO();
 	}
 	async void OnSaveButtonClicked(Object sender, EventArgs e)
 	{
@@ -140,10 +140,11 @@ public partial class ManageMediaPage : ContentPage
 
 	int GenerateIdForIngredient()
 	{
-		id = new Random().Next().Next();
-		List<Ingredient> selectedId = ingredients.Where(p => p.Id == id)
+		int id = 0;
+		id = new Random().Next();
+		List<IngredientDTO> selectedId = ingredients.Where(p => p.Id == id)
 												 .ToList();
-		List<Ingredient> selectedId2 = IngredientList.Where(p => p.Id == id)
+		List<IngredientDTO> selectedId2 = IngredientList.Where(p => p.Id == id)
 													 .ToList();
 		if (selectedId != null || selectedId2 != null)
 		{
