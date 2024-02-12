@@ -12,6 +12,7 @@ namespace API.AutoMapper
 			CreateMap<ProtocolDTO, Protocol>();
 			CreateMap<MediaDTO, Media>();
 			CreateMap<IngredientDTO, Ingredient>();
+			CreateMap<IngredientBaseDTO, IngredientBase>();
 		}
 
 	}
