@@ -23,16 +23,32 @@ namespace API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("MeasurementType")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("IngredientBaseId")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("MeasurementType")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<float>("Quantity")
                         .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IngredientBaseId");
+
+                    b.ToTable("Ingredients");
+                });
+
+            modelBuilder.Entity("API.Models.IngredientBase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -40,7 +56,7 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Ingredients");
+                    b.ToTable("IngredientBase");
                 });
 
             modelBuilder.Entity("API.Models.Media", b =>
@@ -188,6 +204,15 @@ namespace API.Migrations
                     b.ToTable("IngredientMedia");
                 });
 
+            modelBuilder.Entity("API.Models.Ingredient", b =>
+                {
+                    b.HasOne("API.Models.IngredientBase", "IngredientBase")
+                        .WithMany("Ingredients")
+                        .HasForeignKey("IngredientBaseId");
+
+                    b.Navigation("IngredientBase");
+                });
+
             modelBuilder.Entity("API.Models.Media", b =>
                 {
                     b.HasOne("API.Models.PlantInTS", null)
@@ -250,6 +275,11 @@ namespace API.Migrations
                         .HasForeignKey("MediaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("API.Models.IngredientBase", b =>
+                {
+                    b.Navigation("Ingredients");
                 });
 
             modelBuilder.Entity("API.Models.Media", b =>

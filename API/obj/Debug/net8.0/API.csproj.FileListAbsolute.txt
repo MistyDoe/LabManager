@@ -281,3 +281,13 @@ C:\Users\migli\source\repos\LabManager\API\obj\Debug\net8.0\refint\API.dll
 C:\Users\migli\source\repos\LabManager\API\obj\Debug\net8.0\API.pdb
 C:\Users\migli\source\repos\LabManager\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\migli\source\repos\LabManager\API\obj\Debug\net8.0\ref\API.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\API.staticwebassets.runtime.json
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Components.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Forms.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Components.Web.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\migli\source\repos\LabManager\API\bin\Debug\net8.0\Microsoft.JSInterop.dll

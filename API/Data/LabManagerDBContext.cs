@@ -39,7 +39,6 @@ namespace API.Data
 				.HasForeignKey(p => p.ProtocolId)
 				.OnDelete(DeleteBehavior.Cascade);
 
-
 			modelBuilder.Entity<PlantInTS>()
 				.HasOne(_ => _.Plant)
 				.WithMany(_ => _.PlantInTs)
@@ -56,6 +55,7 @@ namespace API.Data
 		}
 
 		public DbSet<API.Models.PlantInTS>? PlantInTS { get; set; }
+		public DbSet<API.Models.IngredientBase> IngredientBase { get; set; } = default!;
 
 	}
 }
