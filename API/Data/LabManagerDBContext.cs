@@ -14,6 +14,7 @@ namespace API.Data
 		public DbSet<Protocol> Protocols => Set<Protocol>();
 		public DbSet<Media> Media => Set<Media>();
 		public DbSet<Ingredient> Ingredients => Set<Ingredient>();
+		public DbSet<IngredientBase> IngredientsBase => Set<IngredientBase>();
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
