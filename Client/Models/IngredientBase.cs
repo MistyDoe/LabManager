@@ -17,7 +17,6 @@ namespace Client.Models
 			}
 		}
 
-		string _name;
 		public string Name
 		{
 			get => _name;
@@ -29,11 +28,8 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
 			}
 		}
+		string _name;
 
-
-		string _type;
-
-		public event PropertyChangedEventHandler? PropertyChanged;
 
 		public string Type
 		{
@@ -46,6 +42,24 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Type)));
 			}
 		}
+		string _type;
+
+		List<Ingredient>? _ingredients;
+
+		public List<Ingredient> Ingredients
+		{
+			get => _ingredients;
+			set
+			{
+				if (_ingredients == value)
+					return;
+				_ingredients = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ingredient)));
+			}
+		}
+
+		public event PropertyChangedEventHandler? PropertyChanged;
+
 
 	}
 }
