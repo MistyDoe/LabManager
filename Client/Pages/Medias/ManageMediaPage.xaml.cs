@@ -11,7 +11,7 @@ public partial class ManageMediaPage : ContentPage
 	Media media;
 	public Ingredient selectedIngredient { get; set; } = new Ingredient();
 	public List<int> IngredientIdList { get; } = new List<int>();
-	public List<Ingredient> ingredients { get; set; }
+	public List<IngredientBase> ingredientsBase { get; set; }
 	bool _isNew;
 	public Media Media
 	{

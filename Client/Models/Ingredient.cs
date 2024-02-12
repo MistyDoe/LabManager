@@ -2,7 +2,7 @@
 
 namespace Client.Models
 {
-	public class Ingredient
+	public class Ingredient : INotifyPropertyChanged
 	{
 		public int _id;
 		public int Id
@@ -14,32 +14,6 @@ namespace Client.Models
 					return;
 				_id = value;
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Id)));
-			}
-		}
-		string _name;
-		public string Name
-		{
-			get => _name;
-			set
-			{
-				if (_name == value)
-					return;
-				_name = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
-			}
-		}
-
-
-		string _type;
-		public string Type
-		{
-			get => _type;
-			set
-			{
-				if (_type == value)
-					return;
-				_type = value;
-				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Type)));
 			}
 		}
 
