@@ -27,7 +27,6 @@ namespace Client
 			builder.Services.AddSingleton<ProtocolPage>();
 			builder.Services.AddSingleton<ManageProtocolPage>();
 
-
 			builder.Services.AddSingleton<IIngredientRestServices, IngredientRestServices>();
 			builder.Services.AddSingleton<IngredientPage>();
 			builder.Services.AddSingleton<ManageIngredientPage>();

@@ -33,10 +33,10 @@ public partial class IngredientBasePage : ContentPage
 		Debug.WriteLine("Add button clicked");
 
 		var navigationParameter = new Dictionary<string, object> {
-			{nameof(Ingredient), new Ingredient() }
+			{nameof(IngredientBase), new IngredientBase() }
 		};
 
-		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);
+		await Shell.Current.GoToAsync(nameof(ManageIngredientBasePage), navigationParameter);
 	}
 
 }

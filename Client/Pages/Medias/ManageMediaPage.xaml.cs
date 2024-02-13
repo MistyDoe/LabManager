@@ -8,10 +8,12 @@ public partial class ManageMediaPage : ContentPage
 {
 	private IMediaRestService _service;
 	private IIngredientRestServices _ingredientRestService;
+	private IIngredientBaseRestServices _ingredientBaseRestService;
 	Media media;
 	public Ingredient selectedIngredient { get; set; } = new Ingredient();
 	public List<int> IngredientIdList { get; } = new List<int>();
 	public List<IngredientBase> ingredientsBase { get; set; }
+	public List<Ingredient> IngredientsList { get; set; }
 	bool _isNew;
 	public Media Media
 	{
@@ -28,8 +30,9 @@ public partial class ManageMediaPage : ContentPage
 		try
 		{
 			base.OnAppearing();
-			ingredients = await _ingredientRestService.GetAllIngredientsAsync();
-			ingredientPicker.SetBinding(Picker.ItemsSourceProperty, "ingredients");
+			ingredientsBase = await _ingredientBaseRestService.GetAllIngredientsBaseAsync();
+			IngredientsList = await _ingredientRestService.GetAllIngredientsAsync();
+			ingredientPicker.SetBinding(Picker.ItemsSourceProperty, "ingredientsBase");
 			ingredientPicker.ItemDisplayBinding = new Binding("Name");
 
 		}
@@ -39,12 +42,13 @@ public partial class ManageMediaPage : ContentPage
 		}
 
 	}
-	public ManageMediaPage(IMediaRestService service, IIngredientRestServices ingredientRestServices)
+	public ManageMediaPage(IMediaRestService service, IIngredientRestServices ingredientRestServices, IIngredientBaseRestServices ingredientBaseRestServices)
 	{
 		InitializeComponent();
 
 		_service = service;
 		_ingredientRestService = ingredientRestServices;
+		_ingredientBaseRestService = ingredientBaseRestServices;
 		BindingContext = this;
 
 	}
@@ -67,20 +71,18 @@ public partial class ManageMediaPage : ContentPage
 	}
 	void OnIngredientPickerChanged(object sender, EventArgs e)
 	{
-
+		IngredientBase selectedBase = new IngredientBase();
 		var picker = (Picker)sender;
 		int selectedIndex = picker.SelectedIndex;
 		if (selectedIndex != -1)
 		{
 			string ingredientName = picker.Items[selectedIndex];
-			selectedIngredient.Name = ingredientName;
+			IngredientBase seletecBase = ingredientsBase.Where(n => n.Name == ingredientName).FirstOrDefault();
+			selectedIngredient.IngredientBaseId = selectedBase.Id;
 		}
 	}
 
-	void OnTypeChanged(object sender, EventArgs e)
-	{
-		selectedIngredient.Type = ((Entry)sender).Text;
-	}
+
 	void OnQunatityChanged(object sender, EventArgs e)
 	{
 		selectedIngredient.Quantity = float.Parse(((Entry)sender).Text);
@@ -96,9 +98,8 @@ public partial class ManageMediaPage : ContentPage
 	}
 	async void OnAddIngredientClicked(Object sender, EventArgs e)
 	{
-		Ingredient NewIngredientCheck = ingredients.Where(x => x.Name == selectedIngredient.Name &&
+		Ingredient NewIngredientCheck = IngredientsList.Where(x => x.IngredientBaseId == selectedIngredient.IngredientBaseId &&
 														 x.MeasurementType == selectedIngredient.MeasurementType &&
-														 x.Type == selectedIngredient.Type &&
 														 x.Quantity == selectedIngredient.Quantity)
 														 .FirstOrDefault();
 		if (NewIngredientCheck != null)
