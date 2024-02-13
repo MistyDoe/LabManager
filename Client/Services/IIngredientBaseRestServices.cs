@@ -2,7 +2,7 @@
 
 namespace Client.Services
 {
-	interface IIngredientBaseRestServices
+	public interface IIngredientBaseRestServices
 	{
 		Task<List<IngredientBase>> GetAllIngredientsBaseAsync();
 		Task<string> AddIngedientBaseAsync(IngredientBase ingredientBase);

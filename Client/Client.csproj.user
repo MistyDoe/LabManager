@@ -8,7 +8,10 @@
     <DefaultDevice>pixel_3_-_api_33</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Pages\Ingredients\IngredientPage.xaml">
+    <MauiXaml Update="Pages\IngredientBase\IngredientBasePage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Pages\IngredientBase\ManageIngredientBasePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">

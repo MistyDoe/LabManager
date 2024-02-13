@@ -30,11 +30,17 @@ build_metadata.AdditionalFiles.ManifestResourceName = Client.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/migli/source/repos/LabManager/Client/Pages/Ingredients/IngredientPage.xaml]
+[C:/Users/migli/source/repos/LabManager/Client/Pages/IngredientBase/IngredientBasePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.Ingredients.IngredientPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Pages\Ingredients\IngredientPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Pages\Ingredients\IngredientPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.IngredientBase.IngredientBasePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\IngredientBase\IngredientBasePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\IngredientBase\IngredientBasePage.xaml
+
+[C:/Users/migli/source/repos/LabManager/Client/Pages/IngredientBase/ManageIngredientBasePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Client.Pages.IngredientBase.ManageIngredientBasePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\IngredientBase\ManageIngredientBasePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\IngredientBase\ManageIngredientBasePage.xaml
 
 [C:/Users/migli/source/repos/LabManager/Client/Pages/Ingredients/ManageIngredientPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

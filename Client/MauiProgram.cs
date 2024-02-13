@@ -32,6 +32,10 @@ namespace Client
 			builder.Services.AddSingleton<IngredientPage>();
 			builder.Services.AddSingleton<ManageIngredientPage>();
 
+			builder.Services.AddSingleton<IIngredientBaseRestServices, IngredientBaseRestServices>();
+			builder.Services.AddSingleton<IngredientBasePage>();
+			builder.Services.AddSingleton<ManageIngredientBasePage>();
+
 			builder.Services.AddSingleton<IMediaRestService, MediaRestServices>();
 			builder.Services.AddSingleton<ManageMediaPage>();
 			builder.Services.AddSingleton<MediaPage>();

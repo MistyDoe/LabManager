@@ -65,7 +65,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\Ingredients\IngredientPage.xaml">
+	  <Compile Update="Pages\IngredientBase\IngredientBasePage.xaml.cs">
+	    <DependentUpon>IngredientBasePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Pages\IngredientBase\IngredientBasePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\IngredientBase\ManageIngredientBasePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\Ingredients\ManageIngredientPage.xaml">

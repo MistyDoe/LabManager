@@ -57,6 +57,19 @@ namespace Client.Models
 			}
 		}
 
+		int? _ingredientBaseId;
+
+		public int? IngredientBaseId
+		{
+			get => _ingredientBaseId;
+			set
+			{
+				if (_ingredientBaseId == value)
+					return;
+				_ingredientBaseId = value;
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IngredientBaseId)));
+			}
+		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
