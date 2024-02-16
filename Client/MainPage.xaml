@@ -6,7 +6,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem    Text="Add new species" Clicked="OnAddPlantClicked"/>
-        <ToolbarItem    Text="Ingredients" Clicked="OnIngredientListClicked"/>
+        <ToolbarItem    Text="Inventory" Clicked="OnInventoryClicked"/>
         <ToolbarItem Text="Protocols" Clicked="OnProtocolClicked" />
         <ToolbarItem Text="Medias" Clicked="OnMediaPageClicked"/>
     </ContentPage.ToolbarItems>

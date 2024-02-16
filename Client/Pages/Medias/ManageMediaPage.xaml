@@ -40,7 +40,6 @@
                 Title="Select ingredient"                                       
                 SelectedIndexChanged="OnIngredientPickerChanged">
         </Picker>
-        <Entry Placeholder ="Type"  TextChanged="OnTypeChanged" />
         <Entry Placeholder="Qunatity" TextChanged="OnQunatityChanged"/>
         <Picker x:Name="ingredientMeasurPicker"
                 Title="Measurement type"

@@ -25,14 +25,14 @@ namespace Client.Services
 			};
 
 		}
-		async Task<string> IIngredientBaseRestServices.AddIngedientBaseAsync(IngredientBase ingredientBase)
+		public async Task<string> AddIngedientBaseAsync(IngredientBase ingredientBase)
 		{
 			string json = "";
 			try
 			{
 				string jsonPlants = JsonSerializer.Serialize<IngredientBase>(ingredientBase, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients/", content);
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/IngredientBses/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
@@ -51,13 +51,13 @@ namespace Client.Services
 			return json;
 		}
 
-		async Task<List<IngredientBase>> IIngredientBaseRestServices.GetAllIngredientsBaseAsync()
+		public async Task<List<IngredientBase>> GetAllIngredientsBaseAsync()
 		{
 			List<IngredientBase> ingredientsBase = new List<IngredientBase>();
 
 			try
 			{
-				HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/IngredientsBase");
+				HttpResponseMessage response = await _httpClient.GetAsync($"{_url}/IngredientBases");
 				if (response.IsSuccessStatusCode)
 				{
 					string content = await response.Content.ReadAsStringAsync();
@@ -76,11 +76,11 @@ namespace Client.Services
 			return ingredientsBase;
 		}
 
-		async Task IIngredientBaseRestServices.RemoveIngredientBaseAsyc(int id)
+		public async Task RemoveIngredientBaseAsyc(int id)
 		{
 			try
 			{
-				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/IngredientsBase/{id}");
+				HttpResponseMessage response = await _httpClient.DeleteAsync($"{_url}/IngredientBases/{id}");
 				if (response.IsSuccessStatusCode)
 				{
 					Debug.Write("Successfully created plant");
@@ -96,13 +96,13 @@ namespace Client.Services
 			}
 		}
 
-		async Task IIngredientBaseRestServices.UpdateIngedientBaseAsync(IngredientBase ingredientBase)
+		public async Task UpdateIngedientBaseAsync(IngredientBase ingredientBase)
 		{
 			try
 			{
 				string jsonIngredients = JsonSerializer.Serialize<IngredientBase>(ingredientBase, _jsonSerializerOptions);
 				StringContent content = new StringContent(jsonIngredients, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/IngredientsBase/{ingredientBase.Id}", content);
+				HttpResponseMessage response = await _httpClient.PutAsync($"{_url}/IngredientBases/{ingredientBase.Id}", content);
 
 				if (response.IsSuccessStatusCode)
 				{

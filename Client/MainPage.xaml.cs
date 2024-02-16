@@ -48,6 +48,12 @@ public partial class MainPage : ContentPage
 		await Shell.Current.GoToAsync(nameof(IngredientPage));
 	}
 
+	async void OnInventoryClicked(object sender, EventArgs e)
+	{
+		Debug.WriteLine("Ingredient list clicked");
+		await Shell.Current.GoToAsync(nameof(IngredientBasePage));
+	}
+
 	async void OnProtocolClicked(object sender, EventArgs e)
 	{
 		Debug.WriteLine("Protocol clicked list clicked");
