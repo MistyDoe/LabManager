@@ -17,7 +17,7 @@ namespace Client.Models
 			}
 		}
 
-		public string Name
+		public string? Name
 		{
 			get => _name;
 			set
@@ -28,10 +28,10 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
 			}
 		}
-		string _name;
+		string? _name;
 
 
-		public string Type
+		public string? Type
 		{
 			get => _type;
 			set
@@ -42,11 +42,11 @@ namespace Client.Models
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Type)));
 			}
 		}
-		string _type;
+		string? _type;
 
 		List<Ingredient>? _ingredients;
 
-		public List<Ingredient> Ingredients
+		public List<Ingredient>? Ingredients
 		{
 			get => _ingredients;
 			set

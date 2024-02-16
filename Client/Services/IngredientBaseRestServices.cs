@@ -25,18 +25,17 @@ namespace Client.Services
 			};
 
 		}
-		public async Task<string> AddIngedientBaseAsync(IngredientBase ingredientBase)
+		public async Task AddIngedientBaseAsync(IngredientBase ingredientBase)
 		{
-			string json = "";
+
 			try
 			{
-				string jsonPlants = JsonSerializer.Serialize<IngredientBase>(ingredientBase, _jsonSerializerOptions);
-				StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/IngredientBses/", content);
+				string jsonBase = JsonSerializer.Serialize<IngredientBase>(ingredientBase, _jsonSerializerOptions);
+				StringContent content = new StringContent(jsonBase, Encoding.UTF8, "application/Json");
+				HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/IngredientBases/", content);
 
 				if (response.IsSuccessStatusCode)
 				{
-					json = await response.Content.ReadAsStringAsync();
 					Debug.Write("Successfully created plant");
 				}
 				else
@@ -48,7 +47,7 @@ namespace Client.Services
 			{
 				Debug.WriteLine(ex.Message);
 			}
-			return json;
+
 		}
 
 		public async Task<List<IngredientBase>> GetAllIngredientsBaseAsync()

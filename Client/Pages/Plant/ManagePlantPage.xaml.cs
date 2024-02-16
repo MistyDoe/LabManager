@@ -8,7 +8,6 @@ namespace Client.Pages;
 public partial class ManagePlantPage : ContentPage
 {
 	private IPlantRestDataServices _plantService;
-
 	Plant _plant;
 	bool _isNew;
 	public Plant Plant

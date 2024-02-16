@@ -18,7 +18,6 @@
                         SelectionChanged="OnSelectionChanged"
                         SelectionMode="Single"
                         Margin="15">
-
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="5" >

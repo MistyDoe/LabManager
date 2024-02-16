@@ -25,7 +25,7 @@ public partial class ManageIngredientPage : ContentPage
 		try
 		{
 			base.OnAppearing();
-			picker.SelectedIndex = picker.Items.IndexOf(ingredient.MeasurementType);
+
 		}
 		catch (Exception ex)
 		{

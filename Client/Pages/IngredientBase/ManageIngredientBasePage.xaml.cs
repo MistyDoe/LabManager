@@ -3,28 +3,38 @@ using Client.Services;
 using System.Diagnostics;
 
 namespace Client.Pages;
+
+[QueryProperty(nameof(IngredientBase), "IngredientBase")]
 public partial class ManageIngredientBasePage : ContentPage
 {
 	private IIngredientBaseRestServices _service;
-	IngredientBase ingredientBase;
+	IngredientBase _ingredientBase;
 	bool _isNew;
 	public IngredientBase IngredientBase
 	{
-		get => ingredientBase;
+		get => _ingredientBase;
 		set
 		{
 			_isNew = IsNew(value);
-			ingredientBase = value;
+			_ingredientBase = value;
 			OnPropertyChanged();
 		}
 	}
-
 	protected async override void OnAppearing()
 	{
 		try
 		{
 			base.OnAppearing();
-			picker.SelectedIndex = picker.Items.IndexOf(ingredientBase.Type);
+
+			if (_isNew == true)
+			{
+				picker.SelectedIndex = -1;
+			}
+			else
+			{
+				picker.SelectedIndex = picker.Items.IndexOf(_ingredientBase.Type);
+			}
+
 		}
 		catch (Exception ex)
 		{
@@ -35,13 +45,9 @@ public partial class ManageIngredientBasePage : ContentPage
 	public ManageIngredientBasePage(IIngredientBaseRestServices service)
 	{
 		InitializeComponent();
-
 		_service = service;
 		BindingContext = this;
-		if (_isNew = true)
-		{
-			picker.SelectedIndex = -1;
-		}
+
 	}
 
 	bool IsNew(IngredientBase ingredientBase)

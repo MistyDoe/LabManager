@@ -25,7 +25,7 @@ public partial class IngredientBasePage : ContentPage
 			{nameof(IngredientBase), e.CurrentSelection.FirstOrDefault() as IngredientBase }
 		};
 
-		await Shell.Current.GoToAsync(nameof(ManageIngredientPage), navigationParameter);
+		await Shell.Current.GoToAsync(nameof(ManageIngredientBasePage), navigationParameter);
 	}
 
 	async void OnAddNewIngredient(object sender, EventArgs e)
