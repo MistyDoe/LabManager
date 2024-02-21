@@ -77,8 +77,9 @@ public partial class ManageMediaPage : ContentPage
 		if (selectedIndex != -1)
 		{
 			string ingredientName = picker.Items[selectedIndex];
-			IngredientBase seletecBase = ingredientsBase.Where(n => n.Name == ingredientName).FirstOrDefault();
+			selectedBase = ingredientsBase.Where(n => n.Name == ingredientName).FirstOrDefault();
 			selectedIngredient.IngredientBaseId = selectedBase.Id;
+
 		}
 	}
 

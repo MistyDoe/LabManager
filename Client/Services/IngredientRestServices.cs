@@ -58,7 +58,7 @@ internal class IngredientRestServices : IIngredientRestServices
 		{
 			string jsonPlants = JsonSerializer.Serialize<Ingredient>(ingredient, _jsonSerializerOptions);
 			StringContent content = new StringContent(jsonPlants, Encoding.UTF8, "application/Json");
-			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients/", content);
+			HttpResponseMessage response = await _httpClient.PostAsync($"{_url}/Ingredients", content);
 
 			if (response.IsSuccessStatusCode)
 			{
